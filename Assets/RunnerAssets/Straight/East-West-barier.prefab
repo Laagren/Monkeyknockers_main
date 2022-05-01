@@ -22105,6 +22105,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hurdle02
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 59b81f3d4c0ea8a4a98445251826f03c, type: 3}
+      propertyPath: m_TagString
+      value: CrashObject
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 59b81f3d4c0ea8a4a98445251826f03c, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -22181,11 +22185,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4486100873958547523}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2700584, y: 1.1177902, z: 0.23581894}
-  m_Center: {x: -0.000000029802322, y: 0.3, z: 0.00000001862645}
+  m_Size: {x: 1.2700584, y: 1.1177902, z: 0.3}
+  m_Center: {x: -0.000000029802322, y: 0.3, z: 0.03}
 --- !u!1001 &4488092808334984509
 PrefabInstance:
   m_ObjectHideFlags: 0

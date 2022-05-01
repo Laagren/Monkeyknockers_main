@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Coin_Script : MonoBehaviour
 {
-    private float maxY, minY, floatTimer, speed;
+    private float maxY, minY, removeTimer, speed;
     public float coinBackSpeed = 6f;
     public float coinLeftSpeed = 3f;
     public bool coinHit;
     private Transform savePos;
+    public GameObject coin;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,7 @@ public class Coin_Script : MonoBehaviour
         maxY = transform.position.y + 0.3f;
         minY = transform.position.y;
         speed = -0.0004f;
+        //obj = GetComponent<GameObject>();
         //player = GameObject.FindGameObjectWithTag("player");
         //savePos = player.GetComponent<Transform>();
     }
@@ -24,7 +26,7 @@ public class Coin_Script : MonoBehaviour
     void Update()
     {
         savePos = GameObject.FindWithTag("Player").transform;
-        floatTimer = Time.deltaTime;
+        
         transform.Rotate(0, 0.2f, 0);
         transform.position = new Vector3(transform.position.x, transform.position.y - speed, transform.position.z);
         if (transform.position.y <= minY)
@@ -44,6 +46,12 @@ public class Coin_Script : MonoBehaviour
             //transform.Translate(Vector3.back * coinBackSpeed * Time.deltaTime, savePos);
             //transform.Translate(Vector3.left * coinUpSpeed * Time.deltaTime, Space.World);
             transform.Translate(Vector3.left * coinLeftSpeed * Time.deltaTime, savePos);
+            removeTimer += Time.deltaTime;
+            
+        }
+        if (removeTimer > 0.5f)
+        {
+            Destroy(coin);
         }
         //if (floatTimer > 0.4f)
         //{

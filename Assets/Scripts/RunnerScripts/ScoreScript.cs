@@ -7,12 +7,15 @@ public class ScoreScript : MonoBehaviour
 {
     private float score;
 
-    public Text scoreText;
+    [SerializeField]
+    private Text scoreText;
+
     private Coin_Script coin;
 
     // Start is called before the first frame update
     void Start()
     {
+ 
     }
 
     // Update is called once per frame
@@ -22,12 +25,6 @@ public class ScoreScript : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-
-        if (other.isTrigger && other.gameObject.tag == "Coin")
-        {
-
-        }
-
         if (other.tag == "Coin")
         {
             score += 10;
@@ -42,4 +39,8 @@ public class ScoreScript : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+
+    }
 }

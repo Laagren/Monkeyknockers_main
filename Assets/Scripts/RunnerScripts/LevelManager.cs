@@ -6,19 +6,16 @@ public class LevelManager : MonoBehaviour
 {
     public TileData[] listOfTiles;
     public List<TileData> activeTiles = new List<TileData>();
-    public GameObject tWall;
     public TileData startTile;
     public Vector3 origin;
-    public GameObject player;
-    private GameObject currentTile;
+    //public GameObject player;
     public PlayerMovement player_script;
     private TileData lastTile;
     private TileData chosenTile;
     TileData.Direction newStartDir;
-    private GameObject nextTile;
     private Vector3 newPos;
-    private float startTileCounter, removeOneSideTimer, removeTileTimer;
-    private bool spawnCross;
+    private float startTileCounter, removeTileTimer;
+    //private bool spawnCross;
     System.Random rnd = new System.Random();
     void Start()
     {
@@ -35,21 +32,21 @@ public class LevelManager : MonoBehaviour
     {
         removeTileTimer += Time.deltaTime;
 
-        if (player_script.leftSideChosen)
-        {
-            Debug.Log("create");
-            Instantiate(tWall, player_script.triggerPosition, Quaternion.identity);
-            player_script.leftSideChosen = false;
-        }
-        if (player_script.rightSideChosen)
-        {
-            Instantiate(tWall, player_script.triggerPosition, Quaternion.identity);
-            player_script.rightSideChosen = false;
-        }
-        if (player_script.spawnTile)
+        //if (player_script.leftSideChosen)
+        //{
+        //    Debug.Log("create");
+        //    Instantiate(tWall, player_script.triggerPosition, Quaternion.identity);
+        //    player_script.leftSideChosen = false;
+        //}
+        //if (player_script.rightSideChosen)
+        //{
+        //    Instantiate(tWall, player_script.triggerPosition, Quaternion.identity);
+        //    player_script.rightSideChosen = false;
+        //}
+        if (player_script.SpawnTile)
         {
             GenerateTile();
-            player_script.spawnTile = false;
+            player_script.SpawnTile = false;
 
         }
     }
