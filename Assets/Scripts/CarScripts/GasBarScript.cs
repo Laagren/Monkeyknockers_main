@@ -51,12 +51,5 @@ public class GasBarScript : MonoBehaviour
         carController.gas += 10f;
     }
 
-    public void gameOver()         //La in 2022-04-23  Får inte den och funka, kommer inte upp något i konsolen
-
-    {
-        if (currentGas == 0)
-        {
-            FindObjectOfType<GameManager>().EndGame();
-        }
-    }
+    
 }

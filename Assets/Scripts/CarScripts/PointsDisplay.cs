@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class PointsDisplay : MonoBehaviour
 {
-    public static PointsDisplay instance;
+    public static PointsDisplay pointsDisplayInstance;
 
     public int currentPoints = 0;
     public Text pointText;
     private void Awake()
     {
-        instance = this;
+        pointsDisplayInstance = this;
     }
 
     // Start is called before the first frame update

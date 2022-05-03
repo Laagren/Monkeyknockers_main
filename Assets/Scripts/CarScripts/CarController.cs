@@ -13,6 +13,7 @@ public class CarController : MonoBehaviour
     private float steerAngle;
     private bool isBreaking;
     public float gas = 100f;
+    private int resetLives = 3;
 
     public WheelCollider frontLeftWheelCollider;
     public WheelCollider frontRightWheelCollider;
@@ -22,13 +23,14 @@ public class CarController : MonoBehaviour
     public Transform frontRightWheelTransform;
     public Transform rearLeftWheelTransform;
     public Transform rearRightWheelTransform;
+    public Transform carTransform;
 
     
 
 
 
-    public float maxSteeringAngle = 30f;
-    public float motorForce = 50f;
+    public float maxSteeringAngle = 50f;
+    public float motorForce = 500f;
     public float brakeForce = 0f;
 
     public Vector3 dustCommingFromFront = new Vector3(0f, 0f, 0f);
@@ -37,8 +39,6 @@ public class CarController : MonoBehaviour
     private void Start()
     {
         particle = GetComponent<ParticleSystem>();
-
-      
     }
 
 
@@ -50,6 +50,24 @@ public class CarController : MonoBehaviour
         HandleSteering();
         UpdateWheels();
         StartParticle();
+        ResetCarPos();
+    }
+
+    private void ResetCarPos() 
+    {
+
+        if (resetLives >= 1)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                carTransform.rotation = new Quaternion(0f, 0f, 0f, 0f);
+                ResetCounter.resetCounterInstance.SubReset();
+                resetLives--;
+            }
+            
+        }
+             
+        
     }
 
     

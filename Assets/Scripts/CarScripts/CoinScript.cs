@@ -21,7 +21,7 @@ public class CoinScript : MonoBehaviour
         if (other.name == "Car")
         {
             Destroy(gameObject);
-            PointsDisplay.instance.AddPoint();
+            PointsDisplay.pointsDisplayInstance.AddPoint();
         }
     }
 }
