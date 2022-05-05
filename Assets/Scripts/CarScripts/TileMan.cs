@@ -20,6 +20,14 @@ public class TileMan : MonoBehaviour
             {
                 SpawnTile(0);
             }
+            if (i == 1)
+            {
+                SpawnTile(1);
+            }
+            if (i == 2)
+            {
+                SpawnTile(1);
+            }
             else
                 SpawnTile(Random.Range(1, tilePrefabs.Length));
       }
