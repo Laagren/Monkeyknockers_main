@@ -28,7 +28,7 @@ public class PointsDisplay : MonoBehaviour
 
     public void AddPoint()
     {
-        currentPoints += 1;
+        currentPoints += 100;
         pointText.text = "Points: " + currentPoints.ToString();
     }
 

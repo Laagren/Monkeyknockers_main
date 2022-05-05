@@ -22,16 +22,18 @@ public class CameraMove : MonoBehaviour {
 
 	void FixedUpdate()
 	{
-		MoveObj ();
-		
-		if (Input.GetKeyDown (KeyCode.A)) {
-			ChangeView01();
-		}
-		
-		if (Input.GetKeyDown (KeyCode.S)) {
-			ChangeView02();
-		}
-	}
+        MoveObj();
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            ChangeView01();
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            ChangeView02();
+        }
+    }
 	
 	
 	void MoveObj() {		
