@@ -1,15 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Coin_Script : MonoBehaviour
 {
     private float maxY, minY, removeTimer, speed;
     public float coinBackSpeed = 6f;
     public float coinLeftSpeed = 3f;
-    public bool coinHit;
+    private bool coinHit;
+    private float score;
     private Transform savePos;
-    public GameObject coin;
+    public GameObject monkey;
+
+    [SerializeField]
+    private Text scoreText;
+
+    [Header("Monkey settings")]
+    [SerializeField]
+    private float speedX;
+
+    [SerializeField]
+    private float speedY;
+
+    [SerializeField]
+    private float speedZ;
+
+    [SerializeField]
+    private float rotationYSpeed;
+
+    [SerializeField]
+    private float rotationXspeed;
+
+    [SerializeField]
+    private float rotationZspeed;
 
     // Start is called before the first frame update
     void Start()
@@ -26,9 +50,8 @@ public class Coin_Script : MonoBehaviour
     void Update()
     {
         savePos = GameObject.FindWithTag("Player").transform;
-        
-        transform.Rotate(0, 0.2f, 0);
-        transform.position = new Vector3(transform.position.x, transform.position.y - speed, transform.position.z);
+
+
         if (transform.position.y <= minY)
         {
             speed *= -1;
@@ -40,23 +63,31 @@ public class Coin_Script : MonoBehaviour
 
         if (coinHit)
         {
-            //transform.Translate(Vector3.back * coinUpSpeed * Time.deltaTime);
-            //transform.Translate(Vector3.left * coinUpSpeed * Time.deltaTime);
-
-            //transform.Translate(Vector3.back * coinBackSpeed * Time.deltaTime, savePos);
-            //transform.Translate(Vector3.left * coinUpSpeed * Time.deltaTime, Space.World);
-            transform.Translate(Vector3.left * coinLeftSpeed * Time.deltaTime, savePos);
+            transform.Rotate(rotationXspeed, rotationYSpeed, rotationZspeed);
+            transform.position = new Vector3(transform.position.x, transform.position.y - speed, transform.position.z);
+            transform.Translate(Vector3.left * speedX * Time.deltaTime, savePos);
+            transform.Translate(Vector3.forward * speedZ * Time.deltaTime, savePos);
+            transform.Translate(Vector3.up * speedY * Time.deltaTime, savePos); 
             removeTimer += Time.deltaTime;
             
         }
-        if (removeTimer > 0.5f)
-        {
-            Destroy(coin);
-        }
-        //if (floatTimer > 0.4f)
+        //if (coinHit)
         //{
-        //    speed *= -1;
-        //    floatTimer = 0;
+        //    transform.position = new Vector3(transform.position.x + speedX, transform.position.y + speedY, transform.position.z + speedZ);
+        //    transform.Rotate(0, 90 * Time.deltaTime * rotationSpeed, 0);
         //}
+        //if (removeTimer > 0.8f)
+        //{
+        //    Destroy(monkey);
+        //}
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            score += 10;
+            //scoreText.text = score.ToString();
+            coinHit = true;
+        }
     }
 }

@@ -31,7 +31,7 @@ public class ScoreScript : MonoBehaviour
             scoreText.text = score.ToString();
             //coin = other.GetComponent<scri>();
             coin = other.GetComponent<Coin_Script>();
-            coin.coinHit = true;
+            //coin.coinHit = true;
             //coin.Coin
             //other.GetComponents<CoinScript>();
             //Destroy(other.gameObject);
