@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CoinScript : MonoBehaviour
 {
-
+    private bool hit;
+    public float speedZ, speedX, speedY;
     PointsDisplay pointsDisplay;
     void Start()
     {
@@ -12,7 +13,12 @@ public class CoinScript : MonoBehaviour
 
     void Update()
     {
-        //transform.Rotate(0, 90 * Time.deltaTime,  0);
+        if (hit)
+        {
+            transform.position = new Vector3(transform.position.x + speedX, transform.position.y + speedY, transform.position.z + speedZ);
+            transform.Rotate(90 * Time.deltaTime, 0,  0);
+        }
+
     }
 
     public void OnTriggerEnter(Collider other)
@@ -20,7 +26,8 @@ public class CoinScript : MonoBehaviour
         
         if (other.name == "Car")
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            hit = true;
             PointsDisplay.pointsDisplayInstance.AddPoint();
         }
     }
