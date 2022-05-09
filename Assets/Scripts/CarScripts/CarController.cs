@@ -6,7 +6,7 @@ using UnityEngine;
 public class CarController : MonoBehaviour
 {
     public ParticleSystem particle;
-    
+    public GameOverScript gameOverScript;
     
     private float horizontalInput;
     private float verticalInput;
@@ -51,6 +51,16 @@ public class CarController : MonoBehaviour
         UpdateWheels();
         StartParticle();
         ResetCarPos();
+        GameOver();
+    }
+
+    public void GameOver()
+    {
+        if(GasBarScript.gasInstance.currentGas <= 2)
+        {
+            gameOverScript.Setup(PointsDisplay.pointsDisplayInstance.currentPoints);
+        }
+        
     }
 
     private void ResetCarPos() 

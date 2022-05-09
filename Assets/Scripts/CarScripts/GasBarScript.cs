@@ -40,7 +40,7 @@ public class GasBarScript : MonoBehaviour
         }
         else
         {
-            timer += 1 * Time.deltaTime;
+            timer += 10 * Time.deltaTime;
         }
         currentGas = carController.gas - timer;
         gasBar.fillAmount = currentGas / maxGas;
