@@ -12,7 +12,7 @@ public class CoinScript : MonoBehaviour
 
     void Update()
     {
-        transform.Rotate(0, 90 * Time.deltaTime,  0);
+        //transform.Rotate(0, 90 * Time.deltaTime,  0);
     }
 
     public void OnTriggerEnter(Collider other)
