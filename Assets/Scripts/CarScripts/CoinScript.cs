@@ -5,7 +5,7 @@ using UnityEngine;
 public class CoinScript : MonoBehaviour
 {
     private bool hit;
-    public float speedZ, speedX, speedY;
+    public float speedZ, speedX, speedY, rotationSpeed;
     PointsDisplay pointsDisplay;
     void Start()
     {
@@ -16,7 +16,7 @@ public class CoinScript : MonoBehaviour
         if (hit)
         {
             transform.position = new Vector3(transform.position.x + speedX, transform.position.y + speedY, transform.position.z + speedZ);
-            transform.Rotate(90 * Time.deltaTime, 0,  0);
+            transform.Rotate(0, 90 * Time.deltaTime * rotationSpeed,  0);
         }
 
     }
