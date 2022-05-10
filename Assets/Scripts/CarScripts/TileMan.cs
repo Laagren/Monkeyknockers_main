@@ -43,6 +43,8 @@ public class TileMan : MonoBehaviour
             //SpawnLastTile(lastTilePrefab.Length);
         }
 
+
+
     }
     
     public void SpawnTile(int tileIndex) 
@@ -52,13 +54,13 @@ public class TileMan : MonoBehaviour
         zSpawn += tileLenght;
     }
 
-    //public void SpawnLastTile(int tileIndex) 
+    //public void SpawnLastTile(int tileIndex)
     //{
-    //    GameObject go = Instantiate(lastTilePrefab[tileIndex], transform.forward * zSpawn , transform.rotation);
+    //    GameObject go = Instantiate(lastTilePrefab[tileIndex], transform.forward * zSpawn, transform.rotation);
     //    activeTiles.Add(go);
     //    zSpawn -= tileLenght;
     //}
-   
+
     private void DeleteTile() 
     {
         Destroy(activeTiles[0]);

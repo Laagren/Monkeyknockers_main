@@ -12,6 +12,7 @@ public class CarController : MonoBehaviour
     private float verticalInput;
     private float steerAngle;
     private bool isBreaking;
+    private bool isPassedWall;
     public float gas = 100f;
     private int resetLives = 3;
 
@@ -25,9 +26,7 @@ public class CarController : MonoBehaviour
     public Transform rearRightWheelTransform;
     public Transform carTransform;
 
-    
-
-
+    public float saveCarPos;
 
     public float maxSteeringAngle = 50f;
     public float motorForce = 500f;
@@ -52,6 +51,11 @@ public class CarController : MonoBehaviour
         StartParticle();
         ResetCarPos();
         GameOver();
+
+        saveCarPos = transform.position.z-20;
+       
+
+
     }
 
     public void GameOver()
@@ -155,6 +159,14 @@ public class CarController : MonoBehaviour
         wheelCollider.GetWorldPose(out pos, out rot);
         trans.rotation = rot;
         trans.position = pos;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "invisWall") 
+        {
+            other.isTrigger = false;
+        }
     }
 
 }

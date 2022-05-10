@@ -15,6 +15,7 @@ TagManager:
   - LeftSide
   - RightSide
   - CrashObject
+  - invisWall
   layers:
   - Default
   - TransparentFX
