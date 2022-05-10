@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController characterController;
     System.Random random = new System.Random();
     private Vector3 direction, jumpForce;
-    private float idleTimer, controllerSaveHeight, controllerSlideHeight, controllerSaveCenterY, controllerSlideCenterY, distanceToFloor;
+    private float idleTimer, controllerSaveHeight, controllerSlideHeight, controllerSaveCenterY, controllerSlideCenterY, distanceToFloor, runTimer;
     private bool startRunning, onFloor, canTurn, sliding, stopSideRun, spawnTile;
     public int lives;
 
@@ -74,11 +74,18 @@ public class PlayerMovement : MonoBehaviour
     {
         if (idleTimer < 2)
         {
-            idleTimer += Time.deltaTime;
+            idleTimer += Time.deltaTime;        
         }
         else
         {
             startRunning = true;
+            runTimer += Time.deltaTime;
+        }
+
+        if (runTimer > 15f && runningSpeed <= 30f)
+        {
+            runningSpeed += 1f;
+            runTimer = 0;
         }
     }
     private void HandleInput()
@@ -156,16 +163,16 @@ public class PlayerMovement : MonoBehaviour
             other.isTrigger = false;
         }
 
-        if (other.isTrigger && other.gameObject.tag == "WallTurnRight" && canTurn)
-        {
-            transform.Rotate(0, 90, 0);
-            other.isTrigger = false;
-        }
-        if (other.isTrigger && other.gameObject.tag == "WallTurnLeft" && canTurn)
-        {
-            transform.Rotate(0, -90, 0);
-            other.isTrigger = false;
-        }
+        //if (other.isTrigger && other.gameObject.tag == "WallTurnRight" && canTurn)
+        //{
+        //    transform.Rotate(0, 90, 0);
+        //    other.isTrigger = false;
+        //}
+        //if (other.isTrigger && other.gameObject.tag == "WallTurnLeft" && canTurn)
+        //{
+        //    transform.Rotate(0, -90, 0);
+        //    other.isTrigger = false;
+        //}
 
         // Kollar om spelaren klivit på en trigger som gör att den kan vända 90 grader.
         if (other.isTrigger && other.gameObject.tag == "turnPlatform")
@@ -181,13 +188,6 @@ public class PlayerMovement : MonoBehaviour
         {
             stopSideRun = true;
         }
-        if (other.gameObject.tag == "CrashObject")
-        {
-            lives = 0;
-            livesText.text = lives.ToString();
-            animator.SetBool("dead", true);
-            removeTileScript.gameActive = false;
-        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -202,7 +202,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision other)
     {
 
     }
@@ -231,8 +231,48 @@ public class PlayerMovement : MonoBehaviour
             sliding = false;
         }
     }
-    private void OnControllerColliderHit(ControllerColliderHit hit)
+    private void OnControllerColliderHit(ControllerColliderHit other)
     {
+        if (other.gameObject.tag == "CrashObject")
+        {
+            lives = 0;
+            livesText.text = lives.ToString();
+            animator.SetBool("dead", true);
+            removeTileScript.gameActive = false;
+        }
 
+        if (other.gameObject.tag == "WallTurnRight" && canTurn)
+        {
+            lives--;
+
+            if (lives >= 1)
+            {
+                transform.Rotate(0, 90, 0);
+            }
+            else
+            {
+                animator.SetBool("dead", true);
+                removeTileScript.gameActive = false;
+            }
+                    
+            livesText.text = lives.ToString();
+        }
+
+        if (other.gameObject.tag == "WallTurnLeft" && canTurn)
+        {
+            lives--;
+
+            if (lives >= 1)
+            {
+                transform.Rotate(0, -90, 0);
+            }
+            else
+            {
+                animator.SetBool("dead", true);
+                removeTileScript.gameActive = false;
+            }
+
+            livesText.text = lives.ToString();
+        }
     }
 }

@@ -4337,7 +4337,7 @@ MonoBehaviour:
   coinBackSpeed: 6
   coinLeftSpeed: 3
   monkey: {fileID: 170446, guid: ff2f496f576102b45889b291ae5e05d2, type: 3}
-  scoreText: {fileID: 1522990642525019493, guid: 60091b49d5ed56241b0d4d7e90a8d191, type: 3}
+  scoreText: {fileID: 0}
   speedX: 10
   speedY: 10
   speedZ: 40

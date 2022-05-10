@@ -12,6 +12,7 @@ public class Coin_Script : MonoBehaviour
     private float score;
     private Transform savePos;
     public GameObject monkey;
+    private PointsDisplay scoreUI;
 
     [SerializeField]
     private Text scoreText;
@@ -85,7 +86,9 @@ public class Coin_Script : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            score += 10;
+            //score += 10;
+            //scoreUI.AddPoint()
+            PointsDisplay.pointsDisplayInstance.AddPoint();
             //scoreText.text = score.ToString();
             coinHit = true;
         }
