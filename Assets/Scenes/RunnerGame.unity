@@ -547,7 +547,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7703046, y: 1}
+    m_SensorSize: {x: 2.2820513, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -669,7 +669,7 @@ MonoBehaviour:
   livesText: {fileID: 862684482}
   gravity: -21
   sideSpeed: 6
-  runningSpeed: 9.63
+  runningSpeed: 19.63
 --- !u!95 &1191144409
 Animator:
   serializedVersion: 4
