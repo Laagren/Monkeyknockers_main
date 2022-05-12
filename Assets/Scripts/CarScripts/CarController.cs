@@ -12,7 +12,7 @@ public class CarController : MonoBehaviour
     private float verticalInput;
     private float steerAngle;
     private bool isBreaking;
-    private bool isPassedWall;
+    //private bool isPassedWall;
     public float gas = 100f;
     private int resetLives = 3;
 
@@ -27,7 +27,6 @@ public class CarController : MonoBehaviour
     public Transform carTransform;
 
     public float saveCarPos;
-
     public float maxSteeringAngle = 50f;
     public float motorForce = 500f;
     public float brakeForce = 0f;
@@ -40,8 +39,6 @@ public class CarController : MonoBehaviour
         particle = GetComponent<ParticleSystem>();
     }
 
-
-
     private void Update()
     {
         GetInput();
@@ -49,13 +46,11 @@ public class CarController : MonoBehaviour
         HandleSteering();
         UpdateWheels();
         StartParticle();
+        EngineSound();
         ResetCarPos();
         GameOver();
 
         saveCarPos = transform.position.z-20;
-       
-
-
     }
 
     public void GameOver()
@@ -64,12 +59,10 @@ public class CarController : MonoBehaviour
         {
             gameOverScript.Setup(PointsDisplay.pointsDisplayInstance.currentPoints);
         }
-        
     }
 
     private void ResetCarPos() 
     {
-
         if (resetLives >= 1)
         {
             if (Input.GetKeyDown(KeyCode.R))
@@ -78,10 +71,27 @@ public class CarController : MonoBehaviour
                 ResetCounter.resetCounterInstance.SubReset();
                 resetLives--;
             }
-            
         }
-             
-        
+    }
+
+
+    private void EngineSound() 
+    {
+        if (Input.GetKeyDown(KeyCode.W)) 
+        {
+            FindObjectOfType<AudioManager>().Play("CarSound");
+        }
+    
+        else if (Input.GetKeyDown(KeyCode.Space)) 
+        {
+            FindObjectOfType<AudioManager>().Play("CarSoundBreak");
+        }
+
+        else if (Input.GetKeyDown(KeyCode.Q))
+        {
+            FindObjectOfType<AudioManager>().Play("CarHorn");
+        }
+
     }
 
     
@@ -92,6 +102,7 @@ public class CarController : MonoBehaviour
         //KÖRA BILEN FRAMÅT
         if (Input.GetKeyDown(KeyCode.W))
         {
+            
             //Så partikelsystemet 
             shape.rotation = dustCommingFromBack;  
             //Startar partikelsystemet när man trycker ner tangenten W

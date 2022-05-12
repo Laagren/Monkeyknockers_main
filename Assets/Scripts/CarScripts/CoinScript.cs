@@ -13,6 +13,7 @@ public class CoinScript : MonoBehaviour
 
     void Update()
     {
+        //Måste få så aporna destroyas efter en viss tid när dem jittar iväg
         if (hit)
         {
             transform.position = new Vector3(transform.position.x + speedX, transform.position.y + speedY, transform.position.z + speedZ);
@@ -29,6 +30,7 @@ public class CoinScript : MonoBehaviour
             //Destroy(gameObject);
             hit = true;
             PointsDisplay.pointsDisplayInstance.AddPoint();
+            FindObjectOfType<AudioManager>().Play("MonkeyDeath");
         }
     }
 }
