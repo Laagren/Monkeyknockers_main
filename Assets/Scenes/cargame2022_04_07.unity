@@ -264,6 +264,12 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Idle
+    clip: {fileID: 8300000, guid: 5c224246aabdf2147b24b920563d9f85, type: 3}
+    volume: 0.04
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
 --- !u!4 &427862805
 Transform:
   m_ObjectHideFlags: 0

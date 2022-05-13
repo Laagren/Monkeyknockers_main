@@ -81,13 +81,18 @@ public class CarController : MonoBehaviour
         {
             FindObjectOfType<AudioManager>().Play("CarSound");
         }
-    
-        else if (Input.GetKeyDown(KeyCode.Space)) 
+
+        //else 
+        //{
+        //    FindObjectOfType<AudioManager>().Play("Idle");
+        //}
+
+        if (Input.GetKeyDown(KeyCode.Space)) 
         {
             FindObjectOfType<AudioManager>().Play("CarSoundBreak");
         }
 
-        else if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             FindObjectOfType<AudioManager>().Play("CarHorn");
         }
