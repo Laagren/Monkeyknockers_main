@@ -1507,8 +1507,6 @@ MonoBehaviour:
   - {fileID: 7385830717842847091, guid: 920e2f3173ef2524da19df751ee371df, type: 3}
   lastTilePrefab:
   - {fileID: 3847816135095009433, guid: 3c6d7da6f0c08794098d043557d831b9, type: 3}
-  zSpawn: 0
-  xSpawn: 0
   tileLenght: 30.5
   numberOfTiles: 5
   player: {fileID: 2123896167}
@@ -1779,7 +1777,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90a22b9cd6f186549888b1a0d5cd87d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentResets: 3
   resetText: {fileID: 1382292525}
 --- !u!223 &1382292524
 Canvas:
@@ -2314,9 +2311,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c5cf7ca21485cb4f893306191b965ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gas: 100
   particle: {fileID: 0}
   gameOverScript: {fileID: 1213744482}
-  gas: 100
   frontLeftWheelCollider: {fileID: 608472784}
   frontRightWheelCollider: {fileID: 1741762192}
   rearLeftWheelCollider: {fileID: 1909851759}

@@ -3,34 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GasBarScript : MonoBehaviour
+public class C_GasBarScript : MonoBehaviour
 {
-    public static GasBarScript gasInstance;
-
-    private Image gasBar;
-    public float currentGas;
-    private float maxGas = 100f;
-    CarController carController;
-    GasBarScript gasBarScript;
+    private Image gasBar; 
+    private C_CarController carController;
+    private C_GasBarScript gasBarScript;
     private float timer;
     private float speed;
+    private float maxGas = 100f;
 
+    public float currentGas;
+    public static C_GasBarScript gasInstance;
 
     private void Awake()
     {
         gasInstance = this;
     }
 
-
-
     void Start()
     {
         gasBar = GetComponent<Image>();
-        carController = FindObjectOfType<CarController>();
-        gasBarScript = FindObjectOfType<GasBarScript>();
+        carController = FindObjectOfType<C_CarController>();
+        gasBarScript = FindObjectOfType<C_GasBarScript>();
     }
-
-    
+  
     void Update()
     {
         speed = carController.frontLeftWheelCollider.motorTorque;
@@ -49,7 +45,5 @@ public class GasBarScript : MonoBehaviour
     public void FillUpGasMeter() 
     {
         carController.gas += 10f;
-    }
-
-    
+    }   
 }

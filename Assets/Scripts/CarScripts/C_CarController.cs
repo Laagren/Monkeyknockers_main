@@ -3,36 +3,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarController : MonoBehaviour
-{
-    public ParticleSystem particle;
-    public GameOverScript gameOverScript;
-    
+public class C_CarController : MonoBehaviour
+{   
     private float horizontalInput;
     private float verticalInput;
     private float steerAngle;
     private bool isBreaking;
-    //private bool isPassedWall;
-    public float gas = 100f;
     private int resetLives = 3;
 
-    public WheelCollider frontLeftWheelCollider;
-    public WheelCollider frontRightWheelCollider;
-    public WheelCollider rearLeftWheelCollider;
-    public WheelCollider rearRightWheelCollider;
-    public Transform frontLeftWheelTransform;
-    public Transform frontRightWheelTransform;
-    public Transform rearLeftWheelTransform;
-    public Transform rearRightWheelTransform;
-    public Transform carTransform;
+    public float gas = 100f;
 
-    public float saveCarPos;
-    public float maxSteeringAngle = 50f;
-    public float motorForce = 500f;
-    public float brakeForce = 0f;
+    [SerializeField] private ParticleSystem particle;
+    [SerializeField] private C_GameOverScript gameOverScript;
 
-    public Vector3 dustCommingFromFront = new Vector3(0f, 0f, 0f);
-    public Vector3 dustCommingFromBack = new Vector3(180f, 0f, 0f);
+    [SerializeField] public WheelCollider frontLeftWheelCollider;
+    [SerializeField] private WheelCollider frontRightWheelCollider;
+    [SerializeField] private WheelCollider rearLeftWheelCollider;
+    [SerializeField] private WheelCollider rearRightWheelCollider;
+    [SerializeField] private Transform frontLeftWheelTransform;
+    [SerializeField] private Transform frontRightWheelTransform;
+    [SerializeField] private Transform rearLeftWheelTransform;
+    [SerializeField] private Transform rearRightWheelTransform;
+    [SerializeField] private Transform carTransform;
+
+    [SerializeField] private float saveCarPos;
+    [SerializeField] private float maxSteeringAngle = 50f;
+    [SerializeField] private float motorForce = 500f;
+    [SerializeField] private float brakeForce = 0f;
+
+    [SerializeField] private Vector3 dustCommingFromFront = new Vector3(0f, 0f, 0f);
+    [SerializeField] private Vector3 dustCommingFromBack = new Vector3(180f, 0f, 0f);
 
     private void Start()
     {
@@ -55,9 +55,9 @@ public class CarController : MonoBehaviour
 
     public void GameOver()
     {
-        if(GasBarScript.gasInstance.currentGas <= 2)
+        if(C_GasBarScript.gasInstance.currentGas <= 2)
         {
-            gameOverScript.Setup(PointsDisplay.pointsDisplayInstance.currentPoints);
+            gameOverScript.Setup(C_PointsDisplay.pointsDisplayInstance.currentPoints);
         }
     }
 
@@ -68,7 +68,7 @@ public class CarController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.R))
             {
                 carTransform.rotation = new Quaternion(0f, 0f, 0f, 0f);
-                ResetCounter.resetCounterInstance.SubReset();
+                C_ResetCounter.resetCounterInstance.SubReset();
                 resetLives--;
             }
         }
@@ -79,22 +79,17 @@ public class CarController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W)) 
         {
-            FindObjectOfType<AudioManager>().Play("CarSound");
+            FindObjectOfType<C_AudioManager>().Play("CarSound");
         }
-
-        //else 
-        //{
-        //    FindObjectOfType<AudioManager>().Play("Idle");
-        //}
 
         if (Input.GetKeyDown(KeyCode.Space)) 
         {
-            FindObjectOfType<AudioManager>().Play("CarSoundBreak");
+            FindObjectOfType<C_AudioManager>().Play("CarSoundBreak");
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            FindObjectOfType<AudioManager>().Play("CarHorn");
+            FindObjectOfType<C_AudioManager>().Play("CarHorn");
         }
 
     }
@@ -104,22 +99,16 @@ public class CarController : MonoBehaviour
     {
         var shape = particle.shape;
 
-        //KÖRA BILEN FRAMÅT
         if (Input.GetKeyDown(KeyCode.W))
-        {
-            
-            //Så partikelsystemet 
+        {        
             shape.rotation = dustCommingFromBack;  
-            //Startar partikelsystemet när man trycker ner tangenten W
             particle.Play();
         }
         if (Input.GetKeyUp(KeyCode.W))
         {
-            //Stoppar partikelsystemet när man släpper tangenten W
-            //Dem partiklarna som finns kvar lever vidare i några få sekunder så allt inte försvinner när man släpper tangenten
             particle.Stop();
         }
-        //KÖR BILEN BAKÅT
+
         if (Input.GetKeyDown(KeyCode.S))
         {
             particle.Play();
@@ -128,11 +117,8 @@ public class CarController : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.S))
         {
             particle.Stop();
-            //shape.rotation = changeRoatation;
         }
     }
-
-    
 
     private void GetInput()
     {
@@ -184,5 +170,4 @@ public class CarController : MonoBehaviour
             other.isTrigger = false;
         }
     }
-
 }

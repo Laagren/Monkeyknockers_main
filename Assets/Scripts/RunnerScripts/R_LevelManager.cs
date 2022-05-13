@@ -2,24 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelManager : MonoBehaviour
+public class R_LevelManager : MonoBehaviour
 {
-    public TileData[] listOfTiles;
-    public List<TileData> activeTiles = new List<TileData>();
-    public TileData startTile;
-    public Vector3 origin;
-    //public GameObject player;
-    public PlayerMovement player_script;
-    private TileData lastTile;
-    private TileData chosenTile;
-    TileData.Direction newStartDir;
+    private R_TileData lastTile;
+    private R_TileData chosenTile;
+    private R_TileData.Direction newStartDir;
     private Vector3 newPos;
     private float startTileCounter, removeTileTimer;
-    //private bool spawnCross;
-    System.Random rnd = new System.Random();
+    private System.Random rnd = new System.Random();
+
+    [SerializeField] private R_TileData[] listOfTiles;
+    [SerializeField] private List<R_TileData> activeTiles = new List<R_TileData>();
+    [SerializeField] private R_TileData startTile;
+    [SerializeField] private Vector3 origin;
+    [SerializeField] private R_PlayerMovement player_script;
+
+    // Generates 10 tiles at start.
     void Start()
     {
-        newStartDir = TileData.Direction.South;
+        newStartDir = R_TileData.Direction.South;
         lastTile = startTile;
         for (int i = 0; i < 10; i++)
         {
@@ -27,22 +28,10 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         removeTileTimer += Time.deltaTime;
 
-        //if (player_script.leftSideChosen)
-        //{
-        //    Debug.Log("create");
-        //    Instantiate(tWall, player_script.triggerPosition, Quaternion.identity);
-        //    player_script.leftSideChosen = false;
-        //}
-        //if (player_script.rightSideChosen)
-        //{
-        //    Instantiate(tWall, player_script.triggerPosition, Quaternion.identity);
-        //    player_script.rightSideChosen = false;
-        //}
         if (player_script.SpawnTile)
         {
             GenerateTile();
@@ -51,27 +40,30 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    private TileData ChooseTile()
+    /// <summary>
+    /// Checks the exit direction of the last tile and matches it with the next tiles entry direction.
+    /// </summary>
+    /// <returns></returns>
+    private R_TileData ChooseTile()
     {
-        List<TileData> possibleTiles = new List<TileData>();
-
+        List<R_TileData> possibleTiles = new List<R_TileData>();
 
         if (startTileCounter > 4)
         {
             switch (lastTile.exit)
             {
-                case TileData.Direction.North:
-                    newStartDir = TileData.Direction.South;
+                case R_TileData.Direction.North:
+                    newStartDir = R_TileData.Direction.South;
 
                     break;
 
-                case TileData.Direction.East:
-                    newStartDir = TileData.Direction.West;
+                case R_TileData.Direction.East:
+                    newStartDir = R_TileData.Direction.West;
 
                     break;
 
-                case TileData.Direction.West:
-                    newStartDir = TileData.Direction.East;
+                case R_TileData.Direction.West:
+                    newStartDir = R_TileData.Direction.East;
 
                     break;
                 default:
@@ -80,12 +72,20 @@ public class LevelManager : MonoBehaviour
         }
         else // Spawna 5 raka tiles vid start.
         {
-            newStartDir = TileData.Direction.North;
+            newStartDir = R_TileData.Direction.North;
             newPos += new Vector3(0, 0, lastTile.tileSize.y);
 
         }
 
-        foreach (TileData t in listOfTiles)
+        FindPossibleTiles(newStartDir, possibleTiles);
+
+        return possibleTiles[rnd.Next(0, possibleTiles.Count)];
+    }
+
+
+    private void FindPossibleTiles(R_TileData.Direction newStartDir, List<R_TileData> possibleTiles)
+    {
+        foreach (R_TileData t in listOfTiles)
         {
             if (startTileCounter <= 4 && t.name == "South-North")
             {
@@ -102,14 +102,9 @@ public class LevelManager : MonoBehaviour
                 {
 
                 }
-
             }
-            //----------<-<
-            // z + 40, x +_ 2.501
         }
-        return possibleTiles[rnd.Next(0, possibleTiles.Count)];
     }
-
     private void GenerateTile()
     {
         chosenTile = ChooseTile();
@@ -117,13 +112,13 @@ public class LevelManager : MonoBehaviour
         activeTiles.Add(chosenTile);
         switch (newStartDir)
         {
-            case TileData.Direction.South:
+            case R_TileData.Direction.South:
                 newPos += new Vector3(0, 0, lastTile.tileSize.y);
                 break;
-            case TileData.Direction.East:
+            case R_TileData.Direction.East:
                 newPos += new Vector3(-lastTile.tileSize.x, 0, 0);
                 break;
-            case TileData.Direction.West:
+            case R_TileData.Direction.West:
                 newPos += new Vector3(lastTile.tileSize.x, 0, 0);
                 break;
             default:

@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TileMan : MonoBehaviour
+public class C_LevelManager : MonoBehaviour
 {
-    public GameObject[] tilePrefabs;
-    public GameObject[] lastTilePrefab;
-    public float zSpawn = 0f;
-    public float xSpawn = 0f;   
-    public float tileLenght = 30f;
-    public int numberOfTiles = 12;
-    public Transform player;
     private List<GameObject> activeTiles = new List<GameObject>();
+    private float zSpawn = 0f;
+
+    [SerializeField] private GameObject[] tilePrefabs;
+    [SerializeField] private GameObject[] lastTilePrefab;
+    [SerializeField] private float tileLenght = 30f;
+    [SerializeField] private int numberOfTiles = 12;
+    [SerializeField] private Transform player;
+
 
     void Start()
     {
@@ -30,8 +31,10 @@ public class TileMan : MonoBehaviour
                 SpawnTile(1);
             }
             else
+            {
                 SpawnTile(Random.Range(1, tilePrefabs.Length));
-      }
+            }
+        }
     }
 
     void Update()
@@ -40,11 +43,7 @@ public class TileMan : MonoBehaviour
         {
             SpawnTile(Random.Range(1, tilePrefabs.Length));
             DeleteTile();
-            //SpawnLastTile(lastTilePrefab.Length);
         }
-
-
-
     }
     
     public void SpawnTile(int tileIndex) 
@@ -53,13 +52,6 @@ public class TileMan : MonoBehaviour
         activeTiles.Add(go);
         zSpawn += tileLenght;
     }
-
-    //public void SpawnLastTile(int tileIndex)
-    //{
-    //    GameObject go = Instantiate(lastTilePrefab[tileIndex], transform.forward * zSpawn, transform.rotation);
-    //    activeTiles.Add(go);
-    //    zSpawn -= tileLenght;
-    //}
 
     private void DeleteTile() 
     {

@@ -2,13 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GasObstacleScript : MonoBehaviour
+public class C_GasObstacleScript : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         transform.Rotate(0, 90 * Time.deltaTime, 0);
@@ -16,10 +11,9 @@ public class GasObstacleScript : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-
         if (other.name == "Car")
         {
-            GasBarScript.gasInstance.FillUpGasMeter();
+            C_GasBarScript.gasInstance.FillUpGasMeter();
             Destroy(gameObject);
         }
     }

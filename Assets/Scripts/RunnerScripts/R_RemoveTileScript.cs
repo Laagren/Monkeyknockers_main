@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class removeTileScript : MonoBehaviour
+public class R_RemoveTileScript : MonoBehaviour
 {
     private float removeTimer;
     private bool startTimer;

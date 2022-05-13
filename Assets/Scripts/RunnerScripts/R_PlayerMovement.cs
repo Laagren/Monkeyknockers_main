@@ -3,41 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerMovement : MonoBehaviour
+public class R_PlayerMovement : MonoBehaviour
 {
-    //private Rigidbody body;
-    //public Transform pos;
-    //private Vector3 newPos;
-    //public bool rightSideChosen, leftSideChosen;
-    //public Vector3 triggerPosition;
-    //private CapsuleCollider capsule;
-    //private BoxCollider col;
-    //public GameObject childOfCurrentTile;
-    //public GameObject currentTile;
-    //private animationHandler animHandler;
-    //private Vector3 boxOffset;
-
     private Animator animator;
     private CharacterController characterController;
-    System.Random random = new System.Random();
+    private System.Random random = new System.Random();
     private Vector3 direction, jumpForce;
     private float idleTimer, controllerSaveHeight, controllerSlideHeight, controllerSaveCenterY, controllerSlideCenterY, distanceToFloor, runTimer;
     private bool startRunning, onFloor, canTurn, sliding, stopSideRun, spawnTile;
     public int lives;
 
     [Header("Level settings")]
-    [SerializeField]
-    private LayerMask floor;
-    [SerializeField]
-    private Text livesText;
+    [SerializeField] private LayerMask floor;
+
+    [SerializeField] private Text livesText;
+
 
     [Header("Player settings")]
-    [SerializeField]
-    public float gravity;  
-    [SerializeField]
-    private float sideSpeed;
-    [SerializeField]
-    private float runningSpeed;
+    [SerializeField] private float gravity;
+
+    [SerializeField] private float sideSpeed;
+
+    [SerializeField] private float runningSpeed;
 
     public int Lives { get { return lives; } }
     public bool SpawnTile { get { return spawnTile; } set { spawnTile = value; } }
@@ -163,17 +150,6 @@ public class PlayerMovement : MonoBehaviour
             other.isTrigger = false;
         }
 
-        //if (other.isTrigger && other.gameObject.tag == "WallTurnRight" && canTurn)
-        //{
-        //    transform.Rotate(0, 90, 0);
-        //    other.isTrigger = false;
-        //}
-        //if (other.isTrigger && other.gameObject.tag == "WallTurnLeft" && canTurn)
-        //{
-        //    transform.Rotate(0, -90, 0);
-        //    other.isTrigger = false;
-        //}
-
         // Kollar om spelaren klivit på en trigger som gör att den kan vända 90 grader.
         if (other.isTrigger && other.gameObject.tag == "turnPlatform")
         {
@@ -238,7 +214,7 @@ public class PlayerMovement : MonoBehaviour
             lives = 0;
             livesText.text = lives.ToString();
             animator.SetBool("dead", true);
-            removeTileScript.gameActive = false;
+            R_RemoveTileScript.gameActive = false;
         }
 
         if (other.gameObject.tag == "WallTurnRight" && canTurn)
@@ -252,7 +228,7 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 animator.SetBool("dead", true);
-                removeTileScript.gameActive = false;
+                R_RemoveTileScript.gameActive = false;
             }
                     
             livesText.text = lives.ToString();
@@ -269,7 +245,7 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 animator.SetBool("dead", true);
-                removeTileScript.gameActive = false;
+                R_RemoveTileScript.gameActive = false;
             }
 
             livesText.text = lives.ToString();

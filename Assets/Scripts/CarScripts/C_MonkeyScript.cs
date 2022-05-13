@@ -2,35 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinScript : MonoBehaviour
+public class C_MonkeyScript : MonoBehaviour
 {
     private bool hit;
-    public float speedZ, speedX, speedY, rotationSpeed;
-    PointsDisplay pointsDisplay;
-    void Start()
-    {
-    }
+
+    [SerializeField] private float speedX;
+
+    [SerializeField] private float speedY;
+
+    [SerializeField] private float speedZ;
+
+    [SerializeField] private float rotationSpeed;
 
     void Update()
     {
-        //Måste få så aporna destroyas efter en viss tid när dem jittar iväg
         if (hit)
         {
             transform.position = new Vector3(transform.position.x + speedX, transform.position.y + speedY, transform.position.z + speedZ);
             transform.Rotate(0, 90 * Time.deltaTime * rotationSpeed,  0);
         }
-
     }
 
     public void OnTriggerEnter(Collider other)
-    {
-        
+    {      
         if (other.name == "Car")
         {
-            //Destroy(gameObject);
             hit = true;
-            PointsDisplay.pointsDisplayInstance.AddPoint();
-            FindObjectOfType<AudioManager>().Play("MonkeyDeath");
+            C_PointsDisplay.pointsDisplayInstance.AddPoint();
+            FindObjectOfType<C_AudioManager>().Play("MonkeyDeath");
         }
     }
 }

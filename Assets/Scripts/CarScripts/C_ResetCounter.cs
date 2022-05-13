@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ResetCounter : MonoBehaviour
+public class C_ResetCounter : MonoBehaviour
 {
-    public int currentResets = 3;
-    public Text resetText;
+    public static C_ResetCounter resetCounterInstance;
+    private int currentResets = 3;
 
-    // Start is called before the first frame update
-    public static ResetCounter resetCounterInstance;
+    [SerializeField] private Text resetText;
 
     
     private void Awake()

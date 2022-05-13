@@ -10,7 +10,7 @@ public class ScoreScript : MonoBehaviour
     [SerializeField]
     private Text scoreText;
 
-    private Coin_Script coin;
+    private R_MonkeyScript coin;
 
     // Start is called before the first frame update
     void Start()
@@ -29,18 +29,7 @@ public class ScoreScript : MonoBehaviour
         {
             score += 10;
             scoreText.text = score.ToString();
-            //coin = other.GetComponent<scri>();
-            coin = other.GetComponent<Coin_Script>();
-            //coin.coinHit = true;
-            //coin.Coin
-            //other.GetComponents<CoinScript>();
-            //Destroy(other.gameObject);
-            //Debug.Log("scoreee");
+            coin = other.GetComponent<R_MonkeyScript>();        
         }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-
     }
 }

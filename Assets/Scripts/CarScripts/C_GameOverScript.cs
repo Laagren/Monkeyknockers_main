@@ -5,9 +5,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameOverScript : MonoBehaviour
+public class C_GameOverScript : MonoBehaviour
 {
-    public TextMeshProUGUI pointsText;
+    [SerializeField] private TextMeshProUGUI pointsText;
 
     public void Setup(int score)
     {

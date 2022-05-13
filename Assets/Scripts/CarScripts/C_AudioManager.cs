@@ -2,14 +2,14 @@ using UnityEngine.Audio;
 using System;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+public class C_AudioManager : MonoBehaviour
 {
-    public Sound[] sounds;
+    [SerializeField] private C_Sound[] sounds;
 
     // Start is called before the first frame update
     void Awake()
     {
-        foreach (Sound s in sounds)
+        foreach (C_Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
@@ -26,7 +26,7 @@ public class AudioManager : MonoBehaviour
 
     public void Play (string name)
     {
-       Sound s = Array.Find(sounds, s => s.name == name);
+       C_Sound s = Array.Find(sounds, s => s.name == name);
         s.source.Play();
     }
 }
