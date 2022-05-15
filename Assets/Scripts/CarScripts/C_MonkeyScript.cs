@@ -21,6 +21,10 @@ public class C_MonkeyScript : MonoBehaviour
             transform.position = new Vector3(transform.position.x + speedX, transform.position.y + speedY, transform.position.z + speedZ);
             transform.Rotate(0, 90 * Time.deltaTime * rotationSpeed,  0);
         }
+        if (C_GasBarScript.gasInstance.currentGas <= 2)
+        {
+            Destroy(GetComponent<AudioSource>());
+        }
     }
 
     public void OnTriggerEnter(Collider other)
