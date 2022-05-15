@@ -9,6 +9,8 @@ public class R_MonkeyScript : MonoBehaviour
     private bool coinHit;
     private Transform savePos;
 
+    private C_AudioManager sound;
+
     [SerializeField] private GameObject monkey;
 
     [SerializeField] private Text scoreText;
@@ -30,6 +32,7 @@ public class R_MonkeyScript : MonoBehaviour
         maxY = transform.position.y + 0.3f;
         minY = transform.position.y;
         speed = -0.0004f;
+        sound = GetComponent<C_AudioManager>();
     }
 
     void Update()
@@ -63,6 +66,8 @@ public class R_MonkeyScript : MonoBehaviour
         {
             C_PointsDisplay.pointsDisplayInstance.AddPoint();
             coinHit = true;
+            FindObjectOfType<C_AudioManager>().Play("MonkeyDeath");
+            //sound.sounds[0].volume = 0;
         }
     }
 }
