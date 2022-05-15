@@ -8,6 +8,7 @@ public class R_MonkeyScript : MonoBehaviour
     private float maxY, minY, removeTimer, speed;
     private bool coinHit;
     private Transform savePos;
+    private AudioSource monkeySound;
 
     private C_AudioManager sound;
 
@@ -33,6 +34,7 @@ public class R_MonkeyScript : MonoBehaviour
         minY = transform.position.y;
         speed = -0.0004f;
         sound = GetComponent<C_AudioManager>();
+        monkeySound = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -55,8 +57,11 @@ public class R_MonkeyScript : MonoBehaviour
             transform.Translate(Vector3.left * speedX * Time.deltaTime, savePos);
             transform.Translate(Vector3.forward * speedZ * Time.deltaTime, savePos);
             transform.Translate(Vector3.up * speedY * Time.deltaTime, savePos); 
-            removeTimer += Time.deltaTime;
-            
+            removeTimer += Time.deltaTime;          
+        }
+        if (R_PlayerMovement.lives == 0)
+        {
+            monkeySound.Stop();
         }
     }
 

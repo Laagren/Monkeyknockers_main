@@ -11,7 +11,7 @@ public class R_PlayerMovement : MonoBehaviour
     private Vector3 direction, jumpForce;
     private float idleTimer, controllerSaveHeight, controllerSlideHeight, controllerSaveCenterY, controllerSlideCenterY, distanceToFloor, runTimer;
     private bool startRunning, onFloor, canTurn, sliding, stopSideRun, spawnTile;
-    public int lives;
+    public static int lives;
 
     [Header("Level settings")]
     [SerializeField] private LayerMask floor;
@@ -28,6 +28,9 @@ public class R_PlayerMovement : MonoBehaviour
 
     public int Lives { get { return lives; } }
     public bool SpawnTile { get { return spawnTile; } set { spawnTile = value; } }
+
+    private enum soundState { idle, running, jumping, sliding }
+    private soundState currentSoundState = soundState.idle;
 
     void Start()
     {
@@ -52,6 +55,7 @@ public class R_PlayerMovement : MonoBehaviour
             if (startRunning)
             {
                 HandleInput();
+                //HandleSound();
                 HandleMovement();
             } 
         }
@@ -67,6 +71,11 @@ public class R_PlayerMovement : MonoBehaviour
         {
             startRunning = true;
             runTimer += Time.deltaTime;
+            if (currentSoundState == soundState.idle)
+            {
+                currentSoundState = soundState.running;
+                FindObjectOfType<C_AudioManager>().Play("RunningSound");
+            }
         }
 
         if (runTimer > 15f && runningSpeed <= 30f)
@@ -84,11 +93,15 @@ public class R_PlayerMovement : MonoBehaviour
         {
             animator.SetBool("jumping", true);
             jumpForce.y = Mathf.Sqrt(1.5f * -2f * gravity);
+            currentSoundState = soundState.jumping;
+            HandleSound();
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
             animator.SetBool("sliding", true);
             sliding = true;
+            currentSoundState = soundState.sliding;
+            HandleSound();
         }
 
         if (canTurn)
@@ -103,6 +116,35 @@ public class R_PlayerMovement : MonoBehaviour
                 canTurn = false;
                 transform.Rotate(0, -90, 0);
             }
+        }
+    }
+
+    private void HandleSound()
+    {
+        switch (currentSoundState)
+        {
+            case soundState.idle:
+                FindObjectOfType<C_AudioManager>().Stop("JumpingSound");
+                FindObjectOfType<C_AudioManager>().Stop("RunningSound");
+                FindObjectOfType<C_AudioManager>().Stop("SlidingSound");
+                break;
+            case soundState.running:
+                FindObjectOfType<C_AudioManager>().Stop("JumpingSound");
+                FindObjectOfType<C_AudioManager>().Stop("SlidingSound");
+                FindObjectOfType<C_AudioManager>().Play("RunningSound");
+                break;
+            case soundState.jumping:
+                FindObjectOfType<C_AudioManager>().Play("JumpingSound");
+                FindObjectOfType<C_AudioManager>().Stop("SlidingSound");
+                FindObjectOfType<C_AudioManager>().Stop("RunningSound");              
+                break;
+            case soundState.sliding:
+                FindObjectOfType<C_AudioManager>().Stop("JumpingSound");
+                FindObjectOfType<C_AudioManager>().Stop("RunningSound");
+                FindObjectOfType<C_AudioManager>().Play("SlidingSound");
+                break;
+            default:
+                break;
         }
     }
 
@@ -186,7 +228,7 @@ public class R_PlayerMovement : MonoBehaviour
     {
         if (message.Equals("SlideFinished"))
         {
-            animator.SetBool("sliding", false);
+            animator.SetBool("sliding", false);           
         }
     }
 
@@ -196,7 +238,8 @@ public class R_PlayerMovement : MonoBehaviour
         {
             animator.SetBool("jumping", false);
             animator.SetBool("sliding", false);
-            
+            currentSoundState = soundState.running;
+            HandleSound();
         }
     }
 
@@ -205,6 +248,8 @@ public class R_PlayerMovement : MonoBehaviour
         if (message.Equals("SlideUp"))
         {
             sliding = false;
+            currentSoundState = soundState.running;
+            HandleSound();
         }
     }
     private void OnControllerColliderHit(ControllerColliderHit other)
@@ -229,6 +274,7 @@ public class R_PlayerMovement : MonoBehaviour
             {
                 animator.SetBool("dead", true);
                 R_RemoveTileScript.gameActive = false;
+
             }
                     
             livesText.text = lives.ToString();
@@ -246,6 +292,8 @@ public class R_PlayerMovement : MonoBehaviour
             {
                 animator.SetBool("dead", true);
                 R_RemoveTileScript.gameActive = false;
+                currentSoundState = soundState.idle;
+                HandleSound();
             }
 
             livesText.text = lives.ToString();
