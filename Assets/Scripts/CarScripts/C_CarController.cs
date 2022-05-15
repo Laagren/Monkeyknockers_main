@@ -42,24 +42,32 @@ public class C_CarController : MonoBehaviour
 
     private void Update()
     {
-        GetInput();
-        HandleMotor();
-        HandleSteering();
-        UpdateWheels();
-        StartParticle();
-        EngineSound();
-        ResetCarPos();
-        GameOver();
+        if (!GameOver())
+        {
+            GetInput();
+            HandleMotor();
+            HandleSteering();
+            UpdateWheels();
+            StartParticle();
+            EngineSound();
+            ResetCarPos();
+            //GameOver();
 
-        saveCarPos = transform.position.z-20;
+            saveCarPos = transform.position.z - 20; 
+        }
     }
 
-    public void GameOver()
+    public bool GameOver()
     {
         if(C_GasBarScript.gasInstance.currentGas <= 2)
         {
             gameOverScript.Setup(C_PointsDisplay.pointsDisplayInstance.currentPoints);
+            C_LevelManager.gameOver = true;
+            return true;
         }
+        
+        return false;
+
     }
 
     private void ResetCarPos() 
