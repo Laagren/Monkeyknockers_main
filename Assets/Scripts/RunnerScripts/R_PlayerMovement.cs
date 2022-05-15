@@ -18,6 +18,7 @@ public class R_PlayerMovement : MonoBehaviour
 
     [SerializeField] private Text livesText;
 
+    [SerializeField] private R_GameOverScript gameOverScript;
 
     [Header("Player settings")]
     [SerializeField] private float gravity;
@@ -175,6 +176,14 @@ public class R_PlayerMovement : MonoBehaviour
         characterController.Move(direction * Time.deltaTime);
         characterController.Move(jumpForce * Time.deltaTime);
     }
+
+    private void HandleDeath()
+    {
+        currentSoundState = soundState.idle;
+        HandleSound();
+        FindObjectOfType<C_AudioManager>().Stop("BackgroundMusic");
+        gameOverScript.Setup(C_PointsDisplay.pointsDisplayInstance.currentPoints);
+    }
     private void OnTriggerEnter(Collider other)
     {
         // Kollar om spelaren sprungit in i en vägg (T-korsning) och svänger automatiskt.
@@ -260,6 +269,7 @@ public class R_PlayerMovement : MonoBehaviour
             livesText.text = lives.ToString();
             animator.SetBool("dead", true);
             R_RemoveTileScript.gameActive = false;
+            HandleDeath();
         }
 
         if (other.gameObject.tag == "WallTurnRight" && canTurn)
@@ -274,7 +284,7 @@ public class R_PlayerMovement : MonoBehaviour
             {
                 animator.SetBool("dead", true);
                 R_RemoveTileScript.gameActive = false;
-
+                HandleDeath();
             }
                     
             livesText.text = lives.ToString();
@@ -292,8 +302,7 @@ public class R_PlayerMovement : MonoBehaviour
             {
                 animator.SetBool("dead", true);
                 R_RemoveTileScript.gameActive = false;
-                currentSoundState = soundState.idle;
-                HandleSound();
+                HandleDeath();
             }
 
             livesText.text = lives.ToString();
