@@ -9,10 +9,16 @@ public class C_GameOverScript : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI pointsText;
 
+    private void Start()
+    {
+        FindObjectOfType<C_AudioManager>().Play("GameOverSound");
+    }
+
     public void Setup(int score)
     {
         gameObject.SetActive(true);
         pointsText.text = "Score: " + score.ToString();
+        StopJungleDriveSound();
     }
 
     public void RestartButton()
@@ -23,5 +29,13 @@ public class C_GameOverScript : MonoBehaviour
     public void ExitButton()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    private void StopJungleDriveSound() 
+    {
+        FindObjectOfType<C_AudioManager>().Stop("CarSoundBreak");
+        FindObjectOfType<C_AudioManager>().Stop("BackgroundMusic");
+        FindObjectOfType<C_AudioManager>().Stop("CarHorn");
+        FindObjectOfType<C_AudioManager>().Stop("CarSound");
     }
 }

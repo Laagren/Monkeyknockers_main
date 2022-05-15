@@ -256,7 +256,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 5c224246aabdf2147b24b920563d9f85, type: 3}
     volume: 0.2
     pitch: 1
-    loop: 0
+    loop: 1
     source: {fileID: 0}
   - name: CarHorn
     clip: {fileID: 8300000, guid: 016305ef1931b314795872a33dd5286d, type: 3}
@@ -264,9 +264,9 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Idle
-    clip: {fileID: 8300000, guid: 5c224246aabdf2147b24b920563d9f85, type: 3}
-    volume: 0.04
+  - name: GameOverSound
+    clip: {fileID: 8300000, guid: b95f425f538326b43b6c85e0960d8488, type: 3}
+    volume: 0.3
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -2314,6 +2314,7 @@ MonoBehaviour:
   gas: 100
   particle: {fileID: 0}
   gameOverScript: {fileID: 1213744482}
+  audioManager: {fileID: 0}
   frontLeftWheelCollider: {fileID: 608472784}
   frontRightWheelCollider: {fileID: 1741762192}
   rearLeftWheelCollider: {fileID: 1909851759}

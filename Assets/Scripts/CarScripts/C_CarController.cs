@@ -110,7 +110,6 @@ public class C_CarController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //audioManager.sounds[2].volume = 0;
             FindObjectOfType<C_AudioManager>().Play("CarSoundBreak");
             FindObjectOfType<C_AudioManager>().Stop("CarSound");
         }
@@ -119,7 +118,6 @@ public class C_CarController : MonoBehaviour
         {
             FindObjectOfType<C_AudioManager>().Play("CarHorn");
         }
-
     }
 
     private void GetInput()
