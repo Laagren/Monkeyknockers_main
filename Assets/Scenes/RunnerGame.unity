@@ -123,6 +123,69 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &54687152
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 54687154}
+  - component: {fileID: 54687153}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &54687153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54687152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95fa0c0e892b64b4792f091f8fe8b533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: BackgroundMusic
+    clip: {fileID: 8300000, guid: 1919d88101d3baf4aa037b8496dfc8e2, type: 3}
+    volume: 0.651
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MonkeyDeath
+    clip: {fileID: 8300000, guid: e11e7a9f8565c064d8d9337e801497ed, type: 3}
+    volume: 0.084
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: RunningSound
+    clip: {fileID: 8300000, guid: 69a1cba5022b43b478202d9b934c61bb, type: 3}
+    volume: 0.084
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+--- !u!4 &54687154
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54687152}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &286552062
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +357,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512341979}
-  m_LocalRotation: {x: 0.20386554, y: 0.000000008422514, z: -0.000000001753894, w: 0.9789989}
+  m_LocalRotation: {x: 0.20386556, y: -0.000000008422514, z: 0.0000000017538943, w: 0.9789989}
   m_LocalPosition: {x: 0, y: 14.75, z: -3.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -558,7 +621,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1077381145}
-  m_LocalRotation: {x: 0.20386554, y: 0.000000008422514, z: -0.000000001753894, w: 0.9789989}
+  m_LocalRotation: {x: 0.20386556, y: -0.000000008422514, z: 0.0000000017538943, w: 0.9789989}
   m_LocalPosition: {x: 0, y: 14.75, z: -3.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
