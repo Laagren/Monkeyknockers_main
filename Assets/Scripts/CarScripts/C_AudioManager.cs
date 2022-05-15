@@ -21,32 +21,32 @@ public class C_AudioManager : MonoBehaviour
         
     }
 
-    private void Update()
-    {
-        EngineSound();
-    }
+    //private void Update()
+    //{
+    //    EngineSound();
+    //}
 
-    private void EngineSound()
-    {
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            FindObjectOfType<C_AudioManager>().Play("CarSound");
-            FindObjectOfType<C_AudioManager>().Stop("CarSoundBreak");
-        }
+    //private void EngineSound()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.W))
+    //    {
+    //        FindObjectOfType<C_AudioManager>().Play("CarSound");
+    //        FindObjectOfType<C_AudioManager>().Stop("CarSoundBreak");
+    //    }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            //audioManager.sounds[2].volume = 0;
-            FindObjectOfType<C_AudioManager>().Play("CarSoundBreak");
-            FindObjectOfType<C_AudioManager>().Stop("CarSound");
-        }
+    //    if (Input.GetKeyDown(KeyCode.Space))
+    //    {
+    //        //audioManager.sounds[2].volume = 0;
+    //        FindObjectOfType<C_AudioManager>().Play("CarSoundBreak");
+    //        FindObjectOfType<C_AudioManager>().Stop("CarSound");
+    //    }
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            FindObjectOfType<C_AudioManager>().Play("CarHorn");
-        }
+    //    if (Input.GetKeyDown(KeyCode.Q))
+    //    {
+    //        FindObjectOfType<C_AudioManager>().Play("CarHorn");
+    //    }
 
-    }
+    //}
 
     private void Start()
     {
