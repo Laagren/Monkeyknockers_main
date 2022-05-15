@@ -7,6 +7,8 @@ public class C_LevelManager : MonoBehaviour
     private List<GameObject> activeTiles = new List<GameObject>();
     private float zSpawn = 0f;
 
+    public static bool gameOver;
+
     [SerializeField] private GameObject[] tilePrefabs;
     [SerializeField] private GameObject[] lastTilePrefab;
     [SerializeField] private float tileLenght = 30f;
@@ -16,6 +18,7 @@ public class C_LevelManager : MonoBehaviour
 
     void Start()
     {
+        
       for(int i = 0; i < numberOfTiles; i++) 
       {
             if (i == 0) 
@@ -42,7 +45,11 @@ public class C_LevelManager : MonoBehaviour
         if(player.position.z-35>zSpawn-(numberOfTiles * tileLenght)) 
         {
             SpawnTile(Random.Range(1, tilePrefabs.Length));
-            DeleteTile();
+            if (gameOver == false)
+            {
+                DeleteTile();
+            }
+            
         }
     }
     
