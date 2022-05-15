@@ -15,6 +15,7 @@ public class C_CarController : MonoBehaviour
 
     [SerializeField] private ParticleSystem particle;
     [SerializeField] private C_GameOverScript gameOverScript;
+    [SerializeField] private C_AudioManager audioManager;
 
     [SerializeField] public WheelCollider frontLeftWheelCollider;
     [SerializeField] private WheelCollider frontRightWheelCollider;
@@ -46,7 +47,7 @@ public class C_CarController : MonoBehaviour
         HandleSteering();
         UpdateWheels();
         StartParticle();
-        EngineSound();
+        //EngineSound();
         ResetCarPos();
         GameOver();
 
@@ -75,24 +76,25 @@ public class C_CarController : MonoBehaviour
     }
 
 
-    private void EngineSound() 
-    {
-        if (Input.GetKeyDown(KeyCode.W)) 
-        {
-            FindObjectOfType<C_AudioManager>().Play("CarSound");
-        }
+    //private void EngineSound() 
+    //{
+    //    if (Input.GetKeyDown(KeyCode.W)) 
+    //    {
+    //        audioManager.Play("CarSound");
+    //    }
 
-        if (Input.GetKeyDown(KeyCode.Space)) 
-        {
-            FindObjectOfType<C_AudioManager>().Play("CarSoundBreak");
-        }
+    //    if (Input.GetKeyDown(KeyCode.Space)) 
+    //    {
+    //        audioManager.sounds[2].volume = 0;
+    //        //FindObjectOfType<C_AudioManager>().Play("CarSoundBreak");
+    //    }
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            FindObjectOfType<C_AudioManager>().Play("CarHorn");
-        }
+    //    if (Input.GetKeyDown(KeyCode.Q))
+    //    {
+    //        FindObjectOfType<C_AudioManager>().Play("CarHorn");
+    //    }
 
-    }
+    //}
 
     
     private void StartParticle()
