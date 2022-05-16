@@ -12,7 +12,10 @@ public class R_PlayerMovement : MonoBehaviour
     private float idleTimer, controllerSaveHeight, controllerSlideHeight, controllerSaveCenterY, controllerSlideCenterY, distanceToFloor, runTimer;
     private bool startRunning, onFloor, canTurn, sliding, stopSideRun, spawnTile;
     public static int lives;
+
+    //highscore
     string playername = "adam";
+
     [Header("Level settings")]
     [SerializeField] private LayerMask floor;
 
@@ -46,6 +49,9 @@ public class R_PlayerMovement : MonoBehaviour
         controllerSlideCenterY = 0.4f;
         distanceToFloor = 0.2f;
         lives = 1;
+
+        M_HighScore.highscoreFile = "RunnerHighscore.txt";
+        M_HighScore.highscoreNamesFile = "RunnerHighscoreNames.txt";
     }
 
     // Update is called once per frame

@@ -10,6 +10,9 @@ public class M_HighScore : MonoBehaviour
     private List<string> nameList;
     private bool status;
 
+    public static string highscoreFile;
+    public static string highscoreNamesFile;
+
     [SerializeField] private TextMeshProUGUI[] pointsText;
 
     void Start()
@@ -47,7 +50,8 @@ public class M_HighScore : MonoBehaviour
     public void ReadHighscore()
     {
         List<string> lines = new List<string>();
-        StreamReader sr = new StreamReader(@"C:\Users\Simon\Desktop\Code\MonkeyKnockers-main\Monkeyknockers_main\Assets\RunnerAssets\JungleHighscore.txt");
+        StreamReader sr = new StreamReader(highscoreFile);
+        // @"C:\Users\Simon\Desktop\Code\MonkeyKnockers-main\Monkeyknockers_main\Assets\RunnerAssets\JungleHighscore.txt"
         while (!sr.EndOfStream)
         {
             lines.Add(sr.ReadLine());

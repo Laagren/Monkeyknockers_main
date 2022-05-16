@@ -7,8 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class C_GameOverScript : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI pointsText;
+    private bool status;
 
+    [SerializeField] private TextMeshProUGUI pointsText;
+    
     private void Start()
     {
         FindObjectOfType<C_AudioManager>().Play("GameOverSound");
@@ -16,9 +18,15 @@ public class C_GameOverScript : MonoBehaviour
 
     public void Setup(int score)
     {
-        gameObject.SetActive(true);
+        ToggleStatus();
         pointsText.text = "Score: " + score.ToString();
         StopJungleDriveSound();
+    }
+
+    public void ToggleStatus()
+    {
+        status = !status;
+        gameObject.SetActive(status);
     }
 
     public void RestartButton()

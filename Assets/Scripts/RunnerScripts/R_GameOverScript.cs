@@ -7,9 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class R_GameOverScript : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI pointsText;
     private bool status;
 
+    [SerializeField] private TextMeshProUGUI pointsText;
+    
     private void Start()
     {
         FindObjectOfType<C_AudioManager>().Play("GameOverSound");
@@ -26,10 +27,6 @@ public class R_GameOverScript : MonoBehaviour
     {
         status = !status;
         gameObject.SetActive(status);
-    }
-    public void SaveScore()
-    {
-
     }
 
     public void RestartButton()

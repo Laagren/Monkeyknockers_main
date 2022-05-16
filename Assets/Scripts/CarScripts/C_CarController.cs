@@ -9,6 +9,7 @@ public class C_CarController : MonoBehaviour
     private float verticalInput;
     private float steerAngle;
     private bool isBreaking;
+    private bool gameActive = true;
     private int resetLives = 3;
 
     public float gas = 100f;
@@ -38,11 +39,14 @@ public class C_CarController : MonoBehaviour
     private void Start()
     {
         particle = GetComponent<ParticleSystem>();
+
+        M_HighScore.highscoreFile = "CarHighscore.txt";
+        M_HighScore.highscoreNamesFile = "CarHighscoreNames.txt";
     }
 
     private void Update()
     {
-        if (!GameOver())
+        if (gameActive)
         {
             GetInput();
             HandleMotor();
@@ -51,23 +55,20 @@ public class C_CarController : MonoBehaviour
             StartParticle();
             EngineSound();
             ResetCarPos();
-            //GameOver();
+            GameOver();
 
             saveCarPos = transform.position.z - 20; 
         }
     }
 
-    public bool GameOver()
+    public void GameOver()
     {
         if(C_GasBarScript.gasInstance.currentGas <= 2)
         {
             gameOverScript.Setup(C_PointsDisplay.pointsDisplayInstance.currentPoints);
             C_LevelManager.gameOver = true;
-            return true;
-        }
-        
-        return false;
-
+            gameActive = false;
+        }    
     }
 
     private void ResetCarPos() 

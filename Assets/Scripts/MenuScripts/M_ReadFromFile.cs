@@ -7,7 +7,7 @@ static class M_ReadFromFile
 {
     public static void SaveNametoFile(string name)
     {
-        FileStream stream = File.Open(@"C:\Users\Simon\Desktop\Code\MonkeyKnockers-main\Monkeyknockers_main\Assets\RunnerAssets\JungleHighscoreNames.txt", FileMode.Append);
+        FileStream stream = File.Open(M_HighScore.highscoreNamesFile, FileMode.Append);
         StreamWriter writer = new StreamWriter(stream);
         writer.WriteLine(name);
         writer.Close();
@@ -15,7 +15,7 @@ static class M_ReadFromFile
 
     public static void SaveHighscoreToFile(int score, string name)
     {
-        FileStream stream = File.Open(@"C:\Users\Simon\Desktop\Code\MonkeyKnockers-main\Monkeyknockers_main\Assets\RunnerAssets\JungleHighscore.txt", FileMode.Append);
+        FileStream stream = File.Open(M_HighScore.highscoreFile, FileMode.Append);
         StreamWriter writer = new StreamWriter(stream);
         string scoreString = name + "-" + score.ToString();
         writer.WriteLine(scoreString);
