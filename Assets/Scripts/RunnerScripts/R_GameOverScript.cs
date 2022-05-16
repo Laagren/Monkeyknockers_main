@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class R_GameOverScript : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI pointsText;
+    private bool status;
 
     private void Start()
     {
@@ -16,9 +17,19 @@ public class R_GameOverScript : MonoBehaviour
 
     public void Setup(int score)
     {
-        gameObject.SetActive(true);
+        ToggleStatus();
         pointsText.text = "Score: " + score.ToString();
         //StopJungleRunnerSound();
+    }
+
+    public void ToggleStatus()
+    {
+        status = !status;
+        gameObject.SetActive(status);
+    }
+    public void SaveScore()
+    {
+
     }
 
     public void RestartButton()

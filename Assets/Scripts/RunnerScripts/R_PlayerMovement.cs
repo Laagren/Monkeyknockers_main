@@ -12,13 +12,15 @@ public class R_PlayerMovement : MonoBehaviour
     private float idleTimer, controllerSaveHeight, controllerSlideHeight, controllerSaveCenterY, controllerSlideCenterY, distanceToFloor, runTimer;
     private bool startRunning, onFloor, canTurn, sliding, stopSideRun, spawnTile;
     public static int lives;
-
+    string playername = "adam";
     [Header("Level settings")]
     [SerializeField] private LayerMask floor;
 
     [SerializeField] private Text livesText;
 
     [SerializeField] private R_GameOverScript gameOverScript;
+
+    [SerializeField] private M_HighScore highscore;
 
     [Header("Player settings")]
     [SerializeField] private float gravity;
@@ -43,7 +45,7 @@ public class R_PlayerMovement : MonoBehaviour
         controllerSaveCenterY = 0.85f;
         controllerSlideCenterY = 0.4f;
         distanceToFloor = 0.2f;
-        lives = 3;
+        lives = 1;
     }
 
     // Update is called once per frame
@@ -183,6 +185,11 @@ public class R_PlayerMovement : MonoBehaviour
         HandleSound();
         FindObjectOfType<C_AudioManager>().Stop("BackgroundMusic");
         gameOverScript.Setup(C_PointsDisplay.pointsDisplayInstance.currentPoints);
+        //save name and score to file
+        M_ReadFromFile.SaveHighscoreToFile(C_PointsDisplay.pointsDisplayInstance.currentPoints, playername);
+        M_ReadFromFile.SaveNametoFile(playername);
+        //highscore.Setup();
+
     }
     private void OnTriggerEnter(Collider other)
     {
