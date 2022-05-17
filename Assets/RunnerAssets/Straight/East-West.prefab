@@ -158,8 +158,6 @@ MonoBehaviour:
   entry: 1
   exit: 3
   tileName: East-West
-  rightSideObjects: []
-  leftSideObjects: []
 --- !u!1 &2683093716031204857
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,7 +173,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8725895644074523119
 Transform:
   m_ObjectHideFlags: 0
@@ -449,7 +447,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1474871143101276142
 Transform:
   m_ObjectHideFlags: 0

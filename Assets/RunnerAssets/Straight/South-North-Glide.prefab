@@ -612,8 +612,6 @@ MonoBehaviour:
   entry: 2
   exit: 0
   tileName: South-North
-  rightSideObjects: []
-  leftSideObjects: []
 --- !u!1 &7430792861950109347
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,7 +627,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4268184169032757941
 Transform:
   m_ObjectHideFlags: 0
@@ -903,7 +901,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6220863365704750260
 Transform:
   m_ObjectHideFlags: 0
