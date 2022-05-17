@@ -8,7 +8,7 @@ public class M_HighScore : MonoBehaviour
 {
     private List<int> highscoreList;
     private List<string> nameList;
-    private bool status;
+    [SerializeField] private bool status;
 
     public static string highscoreFile;
     public static string highscoreNamesFile;

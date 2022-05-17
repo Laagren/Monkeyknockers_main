@@ -18,12 +18,12 @@ public class R_GameOverScript : MonoBehaviour
 
     public void Setup(int score)
     {
-        ToggleStatus();
+        ToggleGameoverScreen();
         pointsText.text = "Score: " + score.ToString();
         //StopJungleRunnerSound();
     }
 
-    public void ToggleStatus()
+    public void ToggleGameoverScreen()
     {
         status = !status;
         gameObject.SetActive(status);

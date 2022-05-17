@@ -14,6 +14,12 @@ public class M_StartScreenScript : MonoBehaviour
         FindObjectOfType<C_AudioManager>().Play("GameOverSound");
     }
 
+    public void ToggleStartScreen()
+    {
+        status = !status;
+        gameObject.SetActive(status);
+    }
+
     public void TurnOffStartScreen()
     {
         status = !status;
