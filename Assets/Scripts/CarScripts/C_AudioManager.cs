@@ -18,7 +18,7 @@ public class C_AudioManager : MonoBehaviour
         }
     }
    
-    private void Start()
+    public void StartBackgroundMusic()
     {
         Play("BackgroundMusic");
     }

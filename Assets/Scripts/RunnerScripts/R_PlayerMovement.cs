@@ -10,10 +10,10 @@ public class R_PlayerMovement : MonoBehaviour
     private System.Random random = new System.Random();
     private Vector3 direction, jumpForce;
     private float idleTimer, controllerSaveHeight, controllerSlideHeight, controllerSaveCenterY, controllerSlideCenterY, distanceToFloor, runTimer;
-    private bool startRunning, onFloor, canTurn, sliding, stopSideRun, spawnTile;
+    private bool startRunning, onFloor, canTurn, sliding, stopSideRun, spawnTile, gameActive;
+
     public static int lives;
 
-    //highscore
     string playername = "adam";
 
     [Header("Level settings")]
@@ -70,27 +70,35 @@ public class R_PlayerMovement : MonoBehaviour
         }
     }
 
+    public void ChangeGameActiveStatus()
+    {
+        gameActive = !gameActive;
+    }
+
     private void StartRunning()
     {
-        if (idleTimer < 2)
+        if (gameActive)
         {
-            idleTimer += Time.deltaTime;        
-        }
-        else
-        {
-            startRunning = true;
-            runTimer += Time.deltaTime;
-            if (currentSoundState == soundState.idle)
+            if (idleTimer < 2)
             {
-                currentSoundState = soundState.running;
-                FindObjectOfType<C_AudioManager>().Play("RunningSound");
+                idleTimer += Time.deltaTime;
             }
-        }
+            else
+            {
+                startRunning = true;
+                runTimer += Time.deltaTime;
+                if (currentSoundState == soundState.idle)
+                {
+                    currentSoundState = soundState.running;
+                    FindObjectOfType<C_AudioManager>().Play("RunningSound");
+                }
+            }
 
-        if (runTimer > 15f && runningSpeed <= 30f)
-        {
-            runningSpeed += 1f;
-            runTimer = 0;
+            if (runTimer > 15f && runningSpeed <= 30f)
+            {
+                runningSpeed += 1f;
+                runTimer = 0;
+            } 
         }
     }
     private void HandleInput()
