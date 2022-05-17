@@ -48,7 +48,7 @@ public class R_PlayerMovement : MonoBehaviour
         controllerSaveCenterY = 0.85f;
         controllerSlideCenterY = 0.4f;
         distanceToFloor = 0.2f;
-        lives = 1;
+        lives = 3;
 
         M_HighScore.highscoreFile = "RunnerHighscore.txt";
         M_HighScore.highscoreNamesFile = "RunnerHighscoreNames.txt";
