@@ -29,17 +29,20 @@ public class C_GasBarScript : MonoBehaviour
   
     void Update()
     {
-        speed = carController.frontLeftWheelCollider.motorTorque;
-        if (speed > 0)
+        if (carController.gameActive)
         {
-            timer += 1.7f * Time.deltaTime;
+            speed = carController.frontLeftWheelCollider.motorTorque;
+            if (speed > 0)
+            {
+                timer += 1.7f * Time.deltaTime;
+            }
+            else
+            {
+                timer += 10 * Time.deltaTime;
+            }
+            currentGas = carController.gas - timer;
+            gasBar.fillAmount = currentGas / maxGas; 
         }
-        else
-        {
-            timer += 10 * Time.deltaTime;
-        }
-        currentGas = carController.gas - timer;
-        gasBar.fillAmount = currentGas / maxGas;
     }
 
     public void FillUpGasMeter() 

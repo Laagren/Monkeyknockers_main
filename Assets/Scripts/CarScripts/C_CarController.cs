@@ -9,10 +9,10 @@ public class C_CarController : MonoBehaviour
     private float verticalInput;
     private float steerAngle;
     private bool isBreaking;
-    private bool gameActive = true;
     private int resetLives = 3;
 
     public float gas = 100f;
+    public bool gameActive;
 
     [SerializeField] private ParticleSystem particle;
     [SerializeField] private C_GameOverScript gameOverScript;
@@ -59,6 +59,11 @@ public class C_CarController : MonoBehaviour
 
             saveCarPos = transform.position.z - 20; 
         }
+    }
+
+    public void ChangeGameStatus()
+    {
+        gameActive = !gameActive;
     }
 
     public void GameOver()
