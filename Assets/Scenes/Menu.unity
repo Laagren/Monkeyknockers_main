@@ -505,6 +505,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeTrioOneSided (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 155934, guid: 2ed7cc7e3c944414d8f3fabb4d533018, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 455934, guid: 2ed7cc7e3c944414d8f3fabb4d533018, type: 3}
       propertyPath: m_RootOrder
       value: 27
@@ -706,6 +710,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeTrioTwoSided (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 137888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 437888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -904,6 +912,10 @@ PrefabInstance:
     - target: {fileID: 161618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
       propertyPath: m_Name
       value: PalmTreeSingleStraightTwoSided (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 161618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
       propertyPath: m_RootOrder
@@ -1781,6 +1793,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeDualStraightOneSided (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 130684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 430684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
       propertyPath: m_RootOrder
       value: 33
@@ -2103,6 +2119,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeTrioTwoSided (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 137888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 437888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
       propertyPath: m_RootOrder
       value: 61
@@ -2221,6 +2241,10 @@ PrefabInstance:
     - target: {fileID: 130684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
       propertyPath: m_Name
       value: PalmTreeDualStraightOneSided
+      objectReference: {fileID: 0}
+    - target: {fileID: 130684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 430684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
       propertyPath: m_RootOrder
@@ -2438,6 +2462,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeTrioTwoSided
       objectReference: {fileID: 0}
+    - target: {fileID: 137888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 437888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
       propertyPath: m_RootOrder
       value: 62
@@ -2562,6 +2590,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeSingleStraightTwoSided (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 161618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2680,6 +2712,10 @@ PrefabInstance:
     - target: {fileID: 124274, guid: 20ddc844cd25b244f8005cba06955856, type: 3}
       propertyPath: m_Name
       value: PalmTreeSingleStraightOneSided (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 124274, guid: 20ddc844cd25b244f8005cba06955856, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 424274, guid: 20ddc844cd25b244f8005cba06955856, type: 3}
       propertyPath: m_RootOrder
@@ -3765,6 +3801,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeDualBendedOneSided (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 109766, guid: 38291ecd3571d294ead9e9d15c345a6d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 409766, guid: 38291ecd3571d294ead9e9d15c345a6d, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -4043,6 +4083,10 @@ PrefabInstance:
     - target: {fileID: 130684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
       propertyPath: m_Name
       value: PalmTreeDualStraightOneSided (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 130684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 430684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
       propertyPath: m_RootOrder
@@ -4465,6 +4509,10 @@ PrefabInstance:
     - target: {fileID: 130684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
       propertyPath: m_Name
       value: PalmTreeDualStraightOneSided (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 130684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 430684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
       propertyPath: m_RootOrder
@@ -6797,6 +6845,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeDualBendedTwoSided (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 119418, guid: 785bfd81c9fb838469851c06eb415f7a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 419418, guid: 785bfd81c9fb838469851c06eb415f7a, type: 3}
       propertyPath: m_RootOrder
       value: 41
@@ -7556,6 +7608,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeDualStraightTwoSided (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 131444, guid: 5e617e90ac28ce7488be6a63235b1f32, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 431444, guid: 5e617e90ac28ce7488be6a63235b1f32, type: 3}
       propertyPath: m_RootOrder
       value: 34
@@ -7617,6 +7673,10 @@ PrefabInstance:
     - target: {fileID: 161618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
       propertyPath: m_Name
       value: PalmTreeSingleStraightTwoSided (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 161618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
       propertyPath: m_RootOrder
@@ -8342,6 +8402,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeSingleStraightTwoSided (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 161618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
       propertyPath: m_RootOrder
       value: 51
@@ -8765,6 +8829,10 @@ PrefabInstance:
     - target: {fileID: 137888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
       propertyPath: m_Name
       value: PalmTreeTrioTwoSided (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 137888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 437888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
       propertyPath: m_RootOrder
@@ -9706,9 +9774,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4873098425407891946, guid: e0d65635a538d504e91fbd25d46f9a8f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 136862, guid: e0d65635a538d504e91fbd25d46f9a8f, type: 3}
       propertyPath: m_Name
       value: MrMo_C (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 136862, guid: e0d65635a538d504e91fbd25d46f9a8f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 491180, guid: e0d65635a538d504e91fbd25d46f9a8f, type: 3}
       propertyPath: m_RootOrder
@@ -10016,6 +10092,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeSingleStraightTwoSided (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 161618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -10188,9 +10268,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4873098425407891946, guid: e0d65635a538d504e91fbd25d46f9a8f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 136862, guid: e0d65635a538d504e91fbd25d46f9a8f, type: 3}
       propertyPath: m_Name
       value: MrMo_C
+      objectReference: {fileID: 0}
+    - target: {fileID: 136862, guid: e0d65635a538d504e91fbd25d46f9a8f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 491180, guid: e0d65635a538d504e91fbd25d46f9a8f, type: 3}
       propertyPath: m_RootOrder
@@ -10640,6 +10728,10 @@ PrefabInstance:
     - target: {fileID: 137888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
       propertyPath: m_Name
       value: PalmTreeTrioTwoSided (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 137888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 437888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
       propertyPath: m_RootOrder
@@ -11573,6 +11665,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeSingleStraightTwoSided (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 161618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -12275,6 +12371,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeSingleStraightTwoSided (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 161618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -12449,6 +12549,10 @@ PrefabInstance:
     - target: {fileID: 137888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
       propertyPath: m_Name
       value: PalmTreeTrioTwoSided (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 137888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 437888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
       propertyPath: m_RootOrder
@@ -13098,6 +13202,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeDualStraightOneSided (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 130684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 430684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
       propertyPath: m_RootOrder
       value: 31
@@ -13331,6 +13439,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeDualBendedOneSided
       objectReference: {fileID: 0}
+    - target: {fileID: 109766, guid: 38291ecd3571d294ead9e9d15c345a6d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 409766, guid: 38291ecd3571d294ead9e9d15c345a6d, type: 3}
       propertyPath: m_RootOrder
       value: 69
@@ -13392,6 +13504,10 @@ PrefabInstance:
     - target: {fileID: 161618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
       propertyPath: m_Name
       value: PalmTreeSingleStraightTwoSided (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 161618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
       propertyPath: m_RootOrder
@@ -13656,6 +13772,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeDualStraightOneSided (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 130684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 430684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
       propertyPath: m_RootOrder
       value: 65
@@ -13899,6 +14019,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeSingleStraightTwoSided (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 161618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
       propertyPath: m_RootOrder
       value: 22
@@ -13998,7 +14122,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.644654, y: 1}
+    m_SensorSize: {x: 2.5798047, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -14014,7 +14138,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 850148730}
-  m_LocalRotation: {x: 0.10649046, y: -0.0000000042771338, z: 4.580787e-10, w: 0.9943138}
+  m_LocalRotation: {x: 0.10649046, y: 0.0000000042771364, z: -4.5807902e-10, w: 0.9943138}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14355,7 +14479,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.644654, y: 1}
+    m_SensorSize: {x: 2.5798047, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -14599,6 +14723,10 @@ PrefabInstance:
     - target: {fileID: 151538, guid: b22d7dcea44833b4ab41d64beb6e42c8, type: 3}
       propertyPath: m_Name
       value: PalmTreeSingleBendedOneSided (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 151538, guid: b22d7dcea44833b4ab41d64beb6e42c8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 451538, guid: b22d7dcea44833b4ab41d64beb6e42c8, type: 3}
       propertyPath: m_RootOrder
@@ -15279,6 +15407,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeTrioOneSided
       objectReference: {fileID: 0}
+    - target: {fileID: 155934, guid: 2ed7cc7e3c944414d8f3fabb4d533018, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 455934, guid: 2ed7cc7e3c944414d8f3fabb4d533018, type: 3}
       propertyPath: m_RootOrder
       value: 64
@@ -15564,6 +15696,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeDualBendedTwoSided (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 119418, guid: 785bfd81c9fb838469851c06eb415f7a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 419418, guid: 785bfd81c9fb838469851c06eb415f7a, type: 3}
       propertyPath: m_RootOrder
       value: 53
@@ -15735,6 +15871,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeSingleBendedTwoSided
       objectReference: {fileID: 0}
+    - target: {fileID: 118788, guid: 8d67c8074b567ec459905d65232f7154, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 418788, guid: 8d67c8074b567ec459905d65232f7154, type: 3}
       propertyPath: m_RootOrder
       value: 60
@@ -15791,6 +15931,10 @@ PrefabInstance:
     - target: {fileID: 161618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
       propertyPath: m_Name
       value: PalmTreeSingleStraightTwoSided (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 161618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
       propertyPath: m_RootOrder
@@ -16105,7 +16249,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.644654, y: 1}
+    m_SensorSize: {x: 2.5798047, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -16121,7 +16265,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 958788458}
-  m_LocalRotation: {x: 0.14253858, y: -0.000000008515345, z: 0.0000000012262865, w: 0.98978925}
+  m_LocalRotation: {x: 0.14253858, y: 0.000000008515345, z: -0.0000000012262865, w: 0.98978925}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -16140,6 +16284,10 @@ PrefabInstance:
     - target: {fileID: 137888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
       propertyPath: m_Name
       value: PalmTreeTrioTwoSided (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 137888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 437888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
       propertyPath: m_RootOrder
@@ -16892,6 +17040,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b84c8ccfab9cb0c40b5dfc88e1a65bc4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b84c8ccfab9cb0c40b5dfc88e1a65bc4, type: 3}
 --- !u!1001 &985098120
@@ -16974,6 +17126,10 @@ PrefabInstance:
     - target: {fileID: 161618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
       propertyPath: m_Name
       value: PalmTreeSingleStraightTwoSided (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 161618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
       propertyPath: m_RootOrder
@@ -17175,6 +17331,10 @@ PrefabInstance:
     - target: {fileID: 124274, guid: 20ddc844cd25b244f8005cba06955856, type: 3}
       propertyPath: m_Name
       value: PalmTreeSingleStraightOneSided
+      objectReference: {fileID: 0}
+    - target: {fileID: 124274, guid: 20ddc844cd25b244f8005cba06955856, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 424274, guid: 20ddc844cd25b244f8005cba06955856, type: 3}
       propertyPath: m_RootOrder
@@ -17789,6 +17949,10 @@ PrefabInstance:
     - target: {fileID: 130684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
       propertyPath: m_Name
       value: PalmTreeDualStraightOneSided (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 130684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 430684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
       propertyPath: m_RootOrder
@@ -18517,6 +18681,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeSingleStraightTwoSided
       objectReference: {fileID: 0}
+    - target: {fileID: 161618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
       propertyPath: m_RootOrder
       value: 56
@@ -18630,6 +18798,10 @@ PrefabInstance:
     - target: {fileID: 131444, guid: 5e617e90ac28ce7488be6a63235b1f32, type: 3}
       propertyPath: m_Name
       value: PalmTreeDualStraightTwoSided (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 131444, guid: 5e617e90ac28ce7488be6a63235b1f32, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 431444, guid: 5e617e90ac28ce7488be6a63235b1f32, type: 3}
       propertyPath: m_RootOrder
@@ -18863,6 +19035,10 @@ PrefabInstance:
     - target: {fileID: 130684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
       propertyPath: m_Name
       value: PalmTreeDualStraightOneSided (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 130684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 430684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
       propertyPath: m_RootOrder
@@ -20458,6 +20634,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeTrioOneSided (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 155934, guid: 2ed7cc7e3c944414d8f3fabb4d533018, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 455934, guid: 2ed7cc7e3c944414d8f3fabb4d533018, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -20633,6 +20813,10 @@ PrefabInstance:
     - target: {fileID: 137888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
       propertyPath: m_Name
       value: PalmTreeTrioTwoSided (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 137888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 437888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
       propertyPath: m_RootOrder
@@ -20814,6 +20998,10 @@ PrefabInstance:
     - target: {fileID: 137888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
       propertyPath: m_Name
       value: PalmTreeTrioTwoSided (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 137888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 437888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
       propertyPath: m_RootOrder
@@ -21490,6 +21678,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeSingleStraightTwoSided (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 161618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
       propertyPath: m_RootOrder
       value: 43
@@ -21954,6 +22146,10 @@ PrefabInstance:
     - target: {fileID: 131444, guid: 5e617e90ac28ce7488be6a63235b1f32, type: 3}
       propertyPath: m_Name
       value: PalmTreeDualStraightTwoSided
+      objectReference: {fileID: 0}
+    - target: {fileID: 131444, guid: 5e617e90ac28ce7488be6a63235b1f32, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 431444, guid: 5e617e90ac28ce7488be6a63235b1f32, type: 3}
       propertyPath: m_RootOrder
@@ -22724,6 +22920,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeSingleStraightTwoSided (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 161618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
       propertyPath: m_RootOrder
       value: 50
@@ -22983,7 +23183,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1289178343}
-  m_LocalRotation: {x: 0.12451124, y: 0.0000000128064075, z: -0.0000000016065044, w: 0.9922182}
+  m_LocalRotation: {x: 0.12451124, y: -0.00000001280641, z: 0.0000000016065048, w: 0.9922182}
   m_LocalPosition: {x: 0, y: 30.13, z: -17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -23134,6 +23334,10 @@ PrefabInstance:
     - target: {fileID: 151538, guid: b22d7dcea44833b4ab41d64beb6e42c8, type: 3}
       propertyPath: m_Name
       value: PalmTreeSingleBendedOneSided (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 151538, guid: b22d7dcea44833b4ab41d64beb6e42c8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 451538, guid: b22d7dcea44833b4ab41d64beb6e42c8, type: 3}
       propertyPath: m_RootOrder
@@ -23408,6 +23612,10 @@ PrefabInstance:
     - target: {fileID: 130684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
       propertyPath: m_Name
       value: PalmTreeDualStraightOneSided (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 130684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 430684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
       propertyPath: m_RootOrder
@@ -24344,6 +24552,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeTrioTwoSided (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 137888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 437888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
       propertyPath: m_RootOrder
       value: 40
@@ -24405,6 +24617,10 @@ PrefabInstance:
     - target: {fileID: 130684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
       propertyPath: m_Name
       value: PalmTreeDualStraightOneSided (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 130684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 430684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
       propertyPath: m_RootOrder
@@ -24988,6 +25204,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeSingleStraightTwoSided (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 161618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
       propertyPath: m_RootOrder
       value: 32
@@ -25346,6 +25566,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeTrioTwoSided (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 137888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 437888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
       propertyPath: m_RootOrder
       value: 44
@@ -25640,6 +25864,10 @@ PrefabInstance:
     - target: {fileID: 151538, guid: b22d7dcea44833b4ab41d64beb6e42c8, type: 3}
       propertyPath: m_Name
       value: PalmTreeSingleBendedOneSided (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 151538, guid: b22d7dcea44833b4ab41d64beb6e42c8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 451538, guid: b22d7dcea44833b4ab41d64beb6e42c8, type: 3}
       propertyPath: m_RootOrder
@@ -26572,6 +26800,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeSingleBendedOneSided (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 151538, guid: b22d7dcea44833b4ab41d64beb6e42c8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 451538, guid: b22d7dcea44833b4ab41d64beb6e42c8, type: 3}
       propertyPath: m_RootOrder
       value: 54
@@ -27207,6 +27439,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeTrioOneSided (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 155934, guid: 2ed7cc7e3c944414d8f3fabb4d533018, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 455934, guid: 2ed7cc7e3c944414d8f3fabb4d533018, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -27762,6 +27998,10 @@ PrefabInstance:
     - target: {fileID: 130684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
       propertyPath: m_Name
       value: PalmTreeDualStraightOneSided (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 130684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 430684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
       propertyPath: m_RootOrder
@@ -28492,7 +28732,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.644654, y: 1}
+    m_SensorSize: {x: 2.5798047, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -28508,7 +28748,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1653665122}
-  m_LocalRotation: {x: 0.12451125, y: 0.000000012804362, z: -0.0000000016067907, w: 0.9922182}
+  m_LocalRotation: {x: 0.12451125, y: -0.000000012804364, z: 0.0000000016067909, w: 0.9922182}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -30136,6 +30376,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeSingleStraightTwoSided (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 161618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
       propertyPath: m_RootOrder
       value: 24
@@ -31151,6 +31395,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeSingleStraightTwoSided (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 161618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -31520,6 +31768,10 @@ PrefabInstance:
     - target: {fileID: 161618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
       propertyPath: m_Name
       value: PalmTreeSingleStraightTwoSided (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 161618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
       propertyPath: m_RootOrder
@@ -32018,6 +32270,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeDualStraightOneSided (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 130684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 430684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
       propertyPath: m_RootOrder
       value: 30
@@ -32375,6 +32631,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeTrioOneSided (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 155934, guid: 2ed7cc7e3c944414d8f3fabb4d533018, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 455934, guid: 2ed7cc7e3c944414d8f3fabb4d533018, type: 3}
       propertyPath: m_RootOrder
       value: 39
@@ -32436,6 +32696,10 @@ PrefabInstance:
     - target: {fileID: 137888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
       propertyPath: m_Name
       value: PalmTreeTrioTwoSided (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 137888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 437888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
       propertyPath: m_RootOrder
@@ -32897,6 +33161,10 @@ PrefabInstance:
     - target: {fileID: 109766, guid: 38291ecd3571d294ead9e9d15c345a6d, type: 3}
       propertyPath: m_Name
       value: PalmTreeDualBendedOneSided (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 109766, guid: 38291ecd3571d294ead9e9d15c345a6d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 409766, guid: 38291ecd3571d294ead9e9d15c345a6d, type: 3}
       propertyPath: m_RootOrder
@@ -34345,6 +34613,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeSingleStraightTwoSided (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 161618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
       propertyPath: m_RootOrder
       value: 55
@@ -34401,6 +34673,10 @@ PrefabInstance:
     - target: {fileID: 137888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
       propertyPath: m_Name
       value: PalmTreeTrioTwoSided (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 137888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 437888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
       propertyPath: m_RootOrder
@@ -35533,6 +35809,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeTrioTwoSided (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 137888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 437888, guid: ecc2762d91d3584429565bde5fbede9e, type: 3}
       propertyPath: m_RootOrder
       value: 59
@@ -36382,6 +36662,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmTreeSingleBendedOneSided
       objectReference: {fileID: 0}
+    - target: {fileID: 151538, guid: b22d7dcea44833b4ab41d64beb6e42c8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 451538, guid: b22d7dcea44833b4ab41d64beb6e42c8, type: 3}
       propertyPath: m_RootOrder
       value: 63
@@ -36647,6 +36931,10 @@ PrefabInstance:
     - target: {fileID: 119418, guid: 785bfd81c9fb838469851c06eb415f7a, type: 3}
       propertyPath: m_Name
       value: PalmTreeDualBendedTwoSided
+      objectReference: {fileID: 0}
+    - target: {fileID: 119418, guid: 785bfd81c9fb838469851c06eb415f7a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 419418, guid: 785bfd81c9fb838469851c06eb415f7a, type: 3}
       propertyPath: m_RootOrder
@@ -37044,6 +37332,10 @@ PrefabInstance:
     - target: {fileID: 130684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
       propertyPath: m_Name
       value: PalmTreeDualStraightOneSided (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 130684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 430684, guid: b9a200fc20bd2b54392b467e9411a431, type: 3}
       propertyPath: m_RootOrder
@@ -37958,6 +38250,10 @@ PrefabInstance:
     - target: {fileID: 161618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
       propertyPath: m_Name
       value: PalmTreeSingleStraightTwoSided (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 161618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461618, guid: 03566e50eb2d319468a8720030b6bcf6, type: 3}
       propertyPath: m_RootOrder
