@@ -52,3 +52,26 @@ adam
 adam
 adam
 adam
+<<<<<<< Updated upstream
+=======
+adam
+adam
+adam
+adam
+adam
+adam
+adam
+adam
+adam
+adam
+adam
+adam
+adam
+adam
+adam
+adam
+adam
+adam
+adam
+adam
+>>>>>>> Stashed changes
