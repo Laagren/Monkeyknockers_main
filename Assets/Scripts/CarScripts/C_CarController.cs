@@ -10,6 +10,9 @@ public class C_CarController : MonoBehaviour
     private float steerAngle;
     private bool isBreaking;
     private int resetLives = 3;
+    private int counter;
+    enum soundState { Idle, Driving, Horn}
+    soundState state=soundState.Idle;
 
     public float gas = 100f;
     public bool gameActive;
@@ -36,10 +39,11 @@ public class C_CarController : MonoBehaviour
     [SerializeField] private Vector3 dustCommingFromFront = new Vector3(0f, 0f, 0f);
     [SerializeField] private Vector3 dustCommingFromBack = new Vector3(180f, 0f, 0f);
 
+    string playername = "Wilmer";
+
     private void Start()
     {
         particle = GetComponent<ParticleSystem>();
-
         M_HighScore.highscoreFile = "CarHighscore.txt";
         M_HighScore.highscoreNamesFile = "CarHighscoreNames.txt";
     }
@@ -48,6 +52,11 @@ public class C_CarController : MonoBehaviour
     {
         if (gameActive)
         {
+            if(counter == 0) 
+            { 
+                ToggleSound();
+                counter++;
+            }
             GetInput();
             HandleMotor();
             HandleSteering();
@@ -73,6 +82,8 @@ public class C_CarController : MonoBehaviour
             gameOverScript.Setup(C_PointsDisplay.pointsDisplayInstance.currentPoints);
             C_LevelManager.gameOver = true;
             gameActive = false;
+            M_ReadFromFile.SaveHighscoreToFile(C_PointsDisplay.pointsDisplayInstance.currentPoints, playername);
+            M_ReadFromFile.SaveNametoFile(playername);
         }    
     }
 
@@ -93,22 +104,22 @@ public class C_CarController : MonoBehaviour
     {
         var shape = particle.shape;
 
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {        
             shape.rotation = dustCommingFromBack;  
             particle.Play();
         }
-        if (Input.GetKeyUp(KeyCode.W))
+        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             particle.Stop();
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             particle.Play();
             shape.rotation = dustCommingFromFront;
         }
-        if (Input.GetKeyUp(KeyCode.S))
+        if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow))
         {
             particle.Stop();
         }
@@ -116,21 +127,45 @@ public class C_CarController : MonoBehaviour
 
     private void EngineSound()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) ||Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
-            FindObjectOfType<C_AudioManager>().Play("CarSound");
-            FindObjectOfType<C_AudioManager>().Stop("CarSoundBreak");
+            state = soundState.Driving;
+            ToggleSound();
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.W) == false && Input.GetKey(KeyCode.UpArrow) == false && Input.GetKey(KeyCode.S) == false && Input.GetKey(KeyCode.DownArrow) == false)
         {
-            FindObjectOfType<C_AudioManager>().Play("CarSoundBreak");
-            FindObjectOfType<C_AudioManager>().Stop("CarSound");
+            if (state != soundState.Idle) 
+            {
+                state = soundState.Idle;
+                ToggleSound();
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            FindObjectOfType<C_AudioManager>().Play("CarHorn");
+            state = soundState.Horn;
+            ToggleSound();
+        }
+    }
+
+    private void ToggleSound() 
+    {
+        switch (state)
+        {
+            case soundState.Idle:
+                FindObjectOfType<C_AudioManager>().Play("CarSoundBreak");
+                FindObjectOfType<C_AudioManager>().Stop("CarSound");
+                break;
+            case soundState.Driving:
+                FindObjectOfType<C_AudioManager>().Play("CarSound");
+                FindObjectOfType<C_AudioManager>().Stop("CarSoundBreak");
+                break;
+            case soundState.Horn:
+                FindObjectOfType<C_AudioManager>().Play("CarHorn");
+                break;
+            default:
+                break;
         }
     }
 
@@ -181,6 +216,7 @@ public class C_CarController : MonoBehaviour
     {
         if (other.gameObject.tag == "invisWall") 
         {
+            if(transform.position.z - 3f > other.transform.position.z )
             other.isTrigger = false;
         }
     }

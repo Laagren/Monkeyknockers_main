@@ -20,7 +20,6 @@ public class R_GameOverScript : MonoBehaviour
     {
         ToggleGameoverScreen();
         pointsText.text = "Score: " + score.ToString();
-        //StopJungleRunnerSound();
     }
 
     public void ToggleGameoverScreen()
@@ -38,12 +37,4 @@ public class R_GameOverScript : MonoBehaviour
     {
         SceneManager.LoadScene("Menu");
     }
-
-    //private void StopJungleRunnerSound()
-    //{
-    //    FindObjectOfType<C_AudioManager>().Stop("RunningSound");
-    //    FindObjectOfType<C_AudioManager>().Stop("BackgroundMusic");
-    //    FindObjectOfType<C_AudioManager>().Stop("JumpingSound");
-    //    FindObjectOfType<C_AudioManager>().Stop("SlidingSound");
-    //}
 }

@@ -15,6 +15,7 @@ public class C_GasObstacleScript : MonoBehaviour
         {
             C_GasBarScript.gasInstance.FillUpGasMeter();
             Destroy(gameObject);
+            FindObjectOfType<C_AudioManager>().Play("GasPickUpSound");
         }
     }
 }
