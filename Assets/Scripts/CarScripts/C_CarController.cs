@@ -13,7 +13,7 @@ public class C_CarController : MonoBehaviour
     private int counter;
     enum soundState { Idle, Driving, Horn}
     soundState state=soundState.Idle;
-
+    
     public float gas = 100f;
     public bool gameActive;
 
@@ -47,7 +47,7 @@ public class C_CarController : MonoBehaviour
         M_HighScore.highscoreFile = "CarHighscore.txt";
         M_HighScore.highscoreNamesFile = "CarHighscoreNames.txt";
     }
-
+    
     private void Update()
     {
         if (gameActive)
@@ -65,7 +65,6 @@ public class C_CarController : MonoBehaviour
             EngineSound();
             ResetCarPos();
             GameOver();
-
             saveCarPos = transform.position.z - 20; 
         }
     }

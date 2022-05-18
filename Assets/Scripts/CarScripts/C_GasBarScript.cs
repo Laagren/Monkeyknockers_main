@@ -41,12 +41,12 @@ public class C_GasBarScript : MonoBehaviour
                 timer += 10 * Time.deltaTime;
             }
             currentGas = carController.gas - timer;
-            gasBar.fillAmount = currentGas / maxGas; 
+            gasBar.fillAmount = currentGas / maxGas;
         }
     }
 
     public void FillUpGasMeter() 
     {
-        carController.gas += 10f;
+        carController.gas += 10;
     }   
 }
