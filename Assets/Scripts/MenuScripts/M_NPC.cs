@@ -32,22 +32,22 @@ public class M_NPC : MonoBehaviour
         chatBackground.position = pos;
     }
 
-    public void OnTriggerStay(Collider other)
-    {
-        this.gameObject.GetComponent<M_NPC>().enabled = true;
-        FindObjectOfType<M_DialogueScript>().EnterRangeOfNPC();
-        if (other.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.F))
-        {
-            this.gameObject.GetComponent<M_NPC>().enabled = true;
-            dialogueSystem.name = Name;
-            dialogueSystem.dialogueLines = sentences;
-            FindObjectOfType<M_DialogueScript>().npcName;
-        }
-    }
+    //public void OnTriggerStay(Collider other)
+    //{
+    //    this.gameObject.GetComponent<M_NPC>().enabled = true;
+    //    FindObjectOfType<M_DialogueScript>().EnterRangeOfNPC();
+    //    if (other.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.F))
+    //    {
+    //        this.gameObject.GetComponent<M_NPC>().enabled = true;
+    //        dialogueSystem.name = Name;
+    //        dialogueSystem.dialogueLines = sentences;
+    //        FindObjectOfType<M_DialogueScript>().npcName;
+    //    }
+    //}
 
-    public void OnTriggerExit(Collider other)
-    {
-        FindObjectOfType<M_DialogueScript>().OutOfRange();
-        this.gameObject.GetComponent<M_NPC>().enabled = false;
-    }
+    //public void OnTriggerExit(Collider other)
+    //{
+    //    FindObjectOfType<M_DialogueScript>().OutOfRange();
+    //    this.gameObject.GetComponent<M_NPC>().enabled = false;
+    //}
 }
