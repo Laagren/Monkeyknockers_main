@@ -18,30 +18,23 @@ public class C_LevelManager : MonoBehaviour
 
     void Start()
     {
-        
+       //Spawnar alltid en förbestämd första tile, sedan blir det random.
       for(int i = 0; i < numberOfTiles; i++) 
       {
             if (i == 0) 
             {
                 SpawnTile(0);
             }
-            if (i == 1)
-            {
-                SpawnTile(1);
-            }
-            if (i == 2)
-            {
-                SpawnTile(1);
-            }
             else
             {
                 SpawnTile(Random.Range(1, tilePrefabs.Length));
             }
-        }
+      }
     }
 
     void Update()
     {
+        //Spawnar nya tiles inom en visst räckhåll till spelaren och tar bort de gamla.
         if(player.position.z-35>zSpawn-(numberOfTiles * tileLenght)) 
         {
             SpawnTile(Random.Range(1, tilePrefabs.Length));
@@ -49,10 +42,10 @@ public class C_LevelManager : MonoBehaviour
             {
                 DeleteTile();
             }
-            
         }
     }
     
+    //Spawnar nya tiles framför dem gamla.
     public void SpawnTile(int tileIndex) 
     {
         GameObject go = Instantiate(tilePrefabs[tileIndex], transform.forward * zSpawn, transform.rotation);

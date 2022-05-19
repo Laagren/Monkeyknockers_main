@@ -10,21 +10,11 @@ public class C_ResetCounter : MonoBehaviour
 
     [SerializeField] private Text resetText;
 
-    
     private void Awake()
     {
         resetCounterInstance = this;
     }
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void SubReset()
     {
         currentResets -= 1;

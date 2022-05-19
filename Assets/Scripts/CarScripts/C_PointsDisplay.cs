@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class C_PointsDisplay : MonoBehaviour
 {
     public int currentPoints = 0;
-
     public static C_PointsDisplay pointsDisplayInstance;
 
     [SerializeField] private Text pointText;

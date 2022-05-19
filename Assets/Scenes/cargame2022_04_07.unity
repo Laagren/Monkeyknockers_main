@@ -4210,7 +4210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a09f00eeb1b1d4cab26a5a9d1de893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentGas: 0
+  currentGas: 100
 --- !u!114 &1499910199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6159,7 +6159,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c5cf7ca21485cb4f893306191b965ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gas: 100
   gameActive: 0
   particle: {fileID: 0}
   gameOverScript: {fileID: 92509509}

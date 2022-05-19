@@ -16,12 +16,14 @@ public class C_CameraFollow : MonoBehaviour
         HandleRotation();
     }
 
+    //Så att kameran följer efter bilen och vilken position kameran ska ha bakom bilen.
     private void HandleTranslation()
     {
         var targetPosition = target.TransformPoint(offset);
         transform.position = Vector3.Lerp(transform.position, targetPosition, translateSpeed * Time.deltaTime);
-        
     }
+
+    //Så att kameran tittar åt det hållet bilen tittar åt, tex när den svänger.
     private void HandleRotation()
     {
         var direction = target.position - transform.position;

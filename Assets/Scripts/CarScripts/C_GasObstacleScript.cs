@@ -6,6 +6,7 @@ public class C_GasObstacleScript : MonoBehaviour
 {
     void Update()
     {
+        //Så att gastanken roteras.
         transform.Rotate(0, 90 * Time.deltaTime, 0);
     }
 
@@ -13,7 +14,10 @@ public class C_GasObstacleScript : MonoBehaviour
     {
         if (other.name == "Car")
         {
-            C_GasBarScript.gasInstance.FillUpGasMeter();
+            if(C_GasBarScript.gasInstance.currentGas < 100) 
+            {
+                C_GasBarScript.gasInstance.FillUpGasMeter();
+            }
             Destroy(gameObject);
             FindObjectOfType<C_AudioManager>().Play("GasPickUpSound");
         }

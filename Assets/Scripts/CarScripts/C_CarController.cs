@@ -9,14 +9,13 @@ public class C_CarController : MonoBehaviour
     private float verticalInput;
     private float steerAngle;
     private bool isBreaking;
+    public bool gameActive;
     private int resetLives = 3;
     private int counter;
+    string playername = "Wilmer";
     enum soundState { Idle, Driving, Horn}
     soundState state=soundState.Idle;
     
-    public float gas = 100f;
-    public bool gameActive;
-
     [SerializeField] private ParticleSystem particle;
     [SerializeField] private C_GameOverScript gameOverScript;
     [SerializeField] private C_AudioManager audioManager;
@@ -39,8 +38,6 @@ public class C_CarController : MonoBehaviour
     [SerializeField] private Vector3 dustCommingFromFront = new Vector3(0f, 0f, 0f);
     [SerializeField] private Vector3 dustCommingFromBack = new Vector3(180f, 0f, 0f);
 
-    string playername = "Wilmer";
-
     private void Start()
     {
         particle = GetComponent<ParticleSystem>();
@@ -62,18 +59,20 @@ public class C_CarController : MonoBehaviour
             HandleSteering();
             UpdateWheels();
             StartParticle();
-            EngineSound();
+            CarSounds();
             ResetCarPos();
             GameOver();
             saveCarPos = transform.position.z - 20; 
         }
     }
 
+    //Denna toggla mellan om spelet ska vara aktivit eller inte.
     public void ChangeGameStatus()
     {
         gameActive = !gameActive;
     }
 
+    //När gasen tar slut, så visas gameOver skärmen och visar score och sparar scoren med spelarens namn till highscorelistan.
     public void GameOver()
     {
         if(C_GasBarScript.gasInstance.currentGas <= 2)
@@ -86,6 +85,7 @@ public class C_CarController : MonoBehaviour
         }    
     }
 
+    //Funktion som gör att om man välter bilen, att man har möjligheten att få den att stå på alla fyra hjul igen så att man kan köra vidare.
     private void ResetCarPos() 
     {
         if (resetLives >= 1)
@@ -99,6 +99,7 @@ public class C_CarController : MonoBehaviour
         }
     }
 
+    //Gräspartiklar som kommer ut från bilen, beroende på vilket håll du kör så ska bilen skicka ut gräspartiklar från andra hållet.
     private void StartParticle()
     {
         var shape = particle.shape;
@@ -124,14 +125,15 @@ public class C_CarController : MonoBehaviour
         }
     }
 
-    private void EngineSound()
+    //Beroende på vilken input så spelas olika ljud.
+    private void CarSounds()
     {
         if (Input.GetKeyDown(KeyCode.W) ||Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             state = soundState.Driving;
             ToggleSound();
         }
-
+       
         if (Input.GetKey(KeyCode.W) == false && Input.GetKey(KeyCode.UpArrow) == false && Input.GetKey(KeyCode.S) == false && Input.GetKey(KeyCode.DownArrow) == false)
         {
             if (state != soundState.Idle) 
@@ -148,6 +150,7 @@ public class C_CarController : MonoBehaviour
         }
     }
 
+    //Spelar upp ljudet och stopar dem andra ljuden.
     private void ToggleSound() 
     {
         switch (state)
@@ -168,6 +171,7 @@ public class C_CarController : MonoBehaviour
         }
     }
 
+    //Beroende på input så känner den av om du svänger, gasar eller bromsar.
     private void GetInput()
     {
         horizontalInput = Input.GetAxis("Horizontal");
@@ -175,6 +179,7 @@ public class C_CarController : MonoBehaviour
         isBreaking = Input.GetKey(KeyCode.Space);
     }
 
+    //Hanterar svängradien på framhjulen.
     private void HandleSteering()
     {
         steerAngle = maxSteeringAngle * horizontalInput;
@@ -182,6 +187,7 @@ public class C_CarController : MonoBehaviour
         frontRightWheelCollider.steerAngle = steerAngle;
     }
 
+    //Hanterar så bilen kan gasa och bromsa.
     private void HandleMotor()
     {
         frontLeftWheelCollider.motorTorque = verticalInput * motorForce;
@@ -194,6 +200,7 @@ public class C_CarController : MonoBehaviour
         rearRightWheelCollider.brakeTorque = brakeForce;
     }
 
+    //Gör så hjulen/däcken roterar.
     private void UpdateWheels()
     {
         UpdateWheelPos(frontLeftWheelCollider, frontLeftWheelTransform);
@@ -211,6 +218,7 @@ public class C_CarController : MonoBehaviour
         trans.position = pos;
     }
 
+    //Gör så att du inte kan passera den "Osnyliga väggen" två gånger.
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "invisWall") 

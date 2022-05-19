@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class C_Sound 
 {
+    //Så man når dessa i inspekorn i Unity genom AudioManager
     [SerializeField] public string name;
 
     [SerializeField] public AudioClip clip;

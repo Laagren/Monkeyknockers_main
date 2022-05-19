@@ -16,6 +16,7 @@ public class C_MonkeyScript : MonoBehaviour
 
     void Update()
     {
+        //När aporna blir träffade ska dem flygga iväg från banan.
         if (hit)
         {
             transform.position = new Vector3(transform.position.x + speedX, transform.position.y + speedY, transform.position.z + speedZ);

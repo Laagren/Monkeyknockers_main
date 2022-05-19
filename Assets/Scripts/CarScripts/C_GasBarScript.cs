@@ -8,11 +8,11 @@ public class C_GasBarScript : MonoBehaviour
     private Image gasBar; 
     private C_CarController carController;
     private C_GasBarScript gasBarScript;
-    private float timer;
-    private float speed;
+    private float gasAccelerate = 0.02f;
+    private float gasIdle = 0.01f;
     private float maxGas = 100f;
-
-    public float currentGas;
+    public float currentGas = 100f;
+    private float speed;
     public static C_GasBarScript gasInstance;
 
     private void Awake()
@@ -27,26 +27,27 @@ public class C_GasBarScript : MonoBehaviour
         gasBarScript = FindObjectOfType<C_GasBarScript>();
     }
   
+    //Så länge spelet är igång ska bränslet minska, det minskar mer när man gasar.
     void Update()
     {
         if (carController.gameActive)
         {
             speed = carController.frontLeftWheelCollider.motorTorque;
-            if (speed > 0)
+
+            if (speed != 0)
             {
-                timer += 1.7f * Time.deltaTime;
+                currentGas -= gasAccelerate;
             }
             else
             {
-                timer += 10 * Time.deltaTime;
+                currentGas -= gasIdle;
             }
-            currentGas = carController.gas - timer;
             gasBar.fillAmount = currentGas / maxGas;
         }
     }
 
     public void FillUpGasMeter() 
     {
-        carController.gas += 10;
+        currentGas += 10;
     }   
 }

@@ -4,24 +4,17 @@ using System.Collections;
 
 public class C_CameraMove : MonoBehaviour {
 
-	public float moveSpeed;
-	public GameObject mainCamera;
+    public float moveSpeed;
+    public GameObject mainCamera;
 
-	// Use this for initialization
-	void Start () {
-		mainCamera.transform.localPosition = new Vector3 ( 0, 0, 0 );
-		mainCamera.transform.localRotation = Quaternion.Euler (18, 180, 0);
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    void Start()
+    {
+        mainCamera.transform.localPosition = new Vector3(0, 0, 0);
+        mainCamera.transform.localRotation = Quaternion.Euler(18, 180, 0);
+    }
 
-		
-	}
-
-	void FixedUpdate()
-	{
+    void FixedUpdate()
+    {
         MoveObj();
 
         if (Input.GetKeyDown(KeyCode.A))
@@ -34,30 +27,33 @@ public class C_CameraMove : MonoBehaviour {
             ChangeView02();
         }
     }
-	
-	
-	void MoveObj() {		
-		float moveAmount = Time.smoothDeltaTime * moveSpeed;
-		transform.Translate ( 0f, 0f, moveAmount );	
-	}
+
+
+    void MoveObj()
+    {
+        float moveAmount = Time.smoothDeltaTime * moveSpeed;
+        transform.Translate(0f, 0f, moveAmount);
+    }
 
 
 
-	void ChangeView01() {
-		transform.position = new Vector3 (0, 2, 10);
-		// x:0, y:1, z:52
-		mainCamera.transform.localPosition = new Vector3 ( -8, 2, 0 );
-		mainCamera.transform.localRotation = Quaternion.Euler (14, 90, 0);
-	}
+    void ChangeView01()
+    {
+        transform.position = new Vector3(0, 2, 10);
+        // x:0, y:1, z:52
+        mainCamera.transform.localPosition = new Vector3(-8, 2, 0);
+        mainCamera.transform.localRotation = Quaternion.Euler(14, 90, 0);
+    }
 
-	void ChangeView02() {
-		transform.position = new Vector3 (0, 2, 10);
-		// x:0, y:1, z:52
-		mainCamera.transform.localPosition = new Vector3 ( 0, 0, 0 );
-		mainCamera.transform.localRotation = Quaternion.Euler ( 19, 180, 0 );
-		moveSpeed = -20f;
-		
-	}
+    void ChangeView02()
+    {
+        transform.position = new Vector3(0, 2, 10);
+        // x:0, y:1, z:52
+        mainCamera.transform.localPosition = new Vector3(0, 0, 0);
+        mainCamera.transform.localRotation = Quaternion.Euler(19, 180, 0);
+        moveSpeed = -20f;
+
+    }
 }
 
 
