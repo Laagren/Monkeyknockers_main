@@ -16,6 +16,7 @@ TagManager:
   - RightSide
   - CrashObject
   - invisWall
+  - JumpCrashTrigger
   layers:
   - Default
   - TransparentFX

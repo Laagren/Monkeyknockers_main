@@ -48,7 +48,7 @@ public class R_PlayerMovement : MonoBehaviour
         controllerSaveCenterY = 0.85f;
         controllerSlideCenterY = 0.4f;
         distanceToFloor = 0.2f;
-        lives = 1;
+        lives = 3;
 
         M_HighScore.highscoreFile = "RunnerHighscore.txt";
         M_HighScore.highscoreNamesFile = "RunnerHighscoreNames.txt";
@@ -108,9 +108,9 @@ public class R_PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && onFloor && animator.GetBool("jumping") != true)
         {
-            animator.SetBool("jumping", true);
-            jumpForce.y = Mathf.Sqrt(1.5f * -2f * gravity);
             currentSoundState = soundState.jumping;
+            animator.SetBool("jumping", true);
+            jumpForce.y = Mathf.Sqrt(1.5f * -2f * gravity);           
             HandleSound();
         }
         if (Input.GetKeyDown(KeyCode.S))
@@ -195,6 +195,9 @@ public class R_PlayerMovement : MonoBehaviour
 
     private void HandleDeath()
     {
+        livesText.text = lives.ToString();
+        //animator.SetBool("dead", true);
+        R_RemoveTileScript.gameActive = false;
         currentSoundState = soundState.idle;
         HandleSound();
         FindObjectOfType<C_AudioManager>().Stop("BackgroundMusic");
@@ -202,32 +205,23 @@ public class R_PlayerMovement : MonoBehaviour
         //save name and score to file
         M_ReadFromFile.SaveHighscoreToFile(C_PointsDisplay.pointsDisplayInstance.currentPoints, playername);
         M_ReadFromFile.SaveNametoFile(playername);
-        //highscore.Setup();
 
+        //highscore.Setup();
     }
     private void OnTriggerEnter(Collider other)
     {
-        // Kollar om spelaren sprungit in i en vägg (T-korsning) och svänger automatiskt.
-        if (other.isTrigger && other.gameObject.tag == "WallBoth" && canTurn)
-        {
-            int i = random.Next(0, 2);
-            if (i == 0) // Sväng höger
-            {
-                transform.Rotate(0, 90, 0);
-            }
-            else
-            {
-                transform.Rotate(0, -90, 0);
-            }
-            other.isTrigger = false;
-        }
-
         // Kollar om spelaren klivit på en trigger som gör att den kan vända 90 grader.
         if (other.isTrigger && other.gameObject.tag == "turnPlatform")
         {
             canTurn = true;
         }
+        if (other.gameObject.tag == "JumpCrashTrigger")
+        {
+            runningSpeed = 12f;
+            animator.SetBool("JumpCrash", true);
 
+            //lives = 0;
+        }
         if (other.gameObject.tag == "SpawnNewTile")
         {
             spawnTile = true;
@@ -250,10 +244,6 @@ public class R_PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision other)
-    {
-
-    }
     public void SlideFinished(string message)
     {
         if (message.Equals("SlideFinished"))
@@ -282,51 +272,57 @@ public class R_PlayerMovement : MonoBehaviour
             HandleSound();
         }
     }
+
+    public void JumpCrashEnd(string message)
+    {
+        if (message.Equals("JumpCrashEnd"))
+        {
+            //animator.GetComponent<Animator>.enabled = false;
+            gameObject.GetComponent<Animator>().enabled = false; 
+            lives = 0;
+            HandleDeath();
+        }
+    }
+
     private void OnControllerColliderHit(ControllerColliderHit other)
     {
         if (other.gameObject.tag == "CrashObject")
         {
-            lives = 0;
-            livesText.text = lives.ToString();
-            animator.SetBool("dead", true);
-            R_RemoveTileScript.gameActive = false;
+            lives = 0;         
             HandleDeath();
         }
 
-        if (other.gameObject.tag == "WallTurnRight" && canTurn)
-        {
-            lives--;
+        //if (other.gameObject.tag == "WallTurnRight"/* && canTurn*/)
+        //{
+        //    lives--;
 
-            if (lives >= 1)
-            {
-                transform.Rotate(0, 90, 0);
-            }
-            else
-            {
-                animator.SetBool("dead", true);
-                R_RemoveTileScript.gameActive = false;
-                HandleDeath();
-            }
+        //    if (lives >= 1)
+        //    {
+        //        transform.Rotate(0, 90, 0);
+        //    }
+        //    else
+        //    {
+        //        HandleDeath();
+        //    }
                     
-            livesText.text = lives.ToString();
-        }
+        //    livesText.text = lives.ToString();
+        //}
 
-        if (other.gameObject.tag == "WallTurnLeft" && canTurn)
-        {
-            lives--;
+        //if (other.gameObject.tag == "WallTurnLeft"/* && canTurn*/)
+        //{
+        //    lives--;
 
-            if (lives >= 1)
-            {
-                transform.Rotate(0, -90, 0);
-            }
-            else
-            {
-                animator.SetBool("dead", true);
-                R_RemoveTileScript.gameActive = false;
-                HandleDeath();
-            }
+        //    if (lives >= 1)
+        //    {
+        //        transform.Rotate(0, -90, 0);
+        //    }
+        //    else
+        //    {
+        //        HandleDeath();
+        //    }
 
-            livesText.text = lives.ToString();
-        }
+        //    livesText.text = lives.ToString();
+        //}
+
     }
 }
