@@ -54,15 +54,17 @@ public class M_DialogueScript : MonoBehaviour
         outOfRange = false;
         dialogueBoxGUI.gameObject.SetActive(true);
         nameText.text = Names;
-        if (Input.GetKeyDown(KeyCode.F))
+        if (!dialogueActive)
         {
-            if (!dialogueActive)
-            {
-                dialogueActive = true;
-                StartCoroutine(StartDialogue());
-            }
+            dialogueActive = true;
+            StartCoroutine(StartDialogue());
         }
-        StartDialogue();
+        //if (Input.GetKeyDown(KeyCode.F))
+        //{
+
+        //    }
+        //}
+        //StartDialogue();
     }
 
     private IEnumerator StartDialogue()
@@ -95,7 +97,7 @@ public class M_DialogueScript : MonoBehaviour
                 }
                 yield return 0;
             }
-            dialogueEnded = false;
+            dialogueEnded = true;
             dialogueActive = false;
             DropDialogue();
         }
