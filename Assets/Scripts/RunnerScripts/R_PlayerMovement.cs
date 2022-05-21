@@ -196,7 +196,7 @@ public class R_PlayerMovement : MonoBehaviour
     private void HandleDeath()
     {
         livesText.text = lives.ToString();
-        //animator.SetBool("dead", true);
+        animator.SetBool("dead", true);
         R_RemoveTileScript.gameActive = false;
         currentSoundState = soundState.idle;
         HandleSound();
@@ -292,37 +292,37 @@ public class R_PlayerMovement : MonoBehaviour
             HandleDeath();
         }
 
-        //if (other.gameObject.tag == "WallTurnRight"/* && canTurn*/)
-        //{
-        //    lives--;
+        if (other.gameObject.tag == "WallTurnRight"/* && canTurn*/)
+        {
+            lives--;
 
-        //    if (lives >= 1)
-        //    {
-        //        transform.Rotate(0, 90, 0);
-        //    }
-        //    else
-        //    {
-        //        HandleDeath();
-        //    }
-                    
-        //    livesText.text = lives.ToString();
-        //}
+            if (lives >= 1 && onFloor)
+            {
+                transform.Rotate(0, 90, 0);
+            }
+            else
+            {
+                HandleDeath();
+            }
 
-        //if (other.gameObject.tag == "WallTurnLeft"/* && canTurn*/)
-        //{
-        //    lives--;
+            livesText.text = lives.ToString();
+        }
 
-        //    if (lives >= 1)
-        //    {
-        //        transform.Rotate(0, -90, 0);
-        //    }
-        //    else
-        //    {
-        //        HandleDeath();
-        //    }
+        if (other.gameObject.tag == "WallTurnLeft"/* && canTurn*/)
+        {
+            lives--;
 
-        //    livesText.text = lives.ToString();
-        //}
+            if (lives >= 1 && onFloor)
+            {
+                transform.Rotate(0, -90, 0);
+            }
+            else
+            {
+                HandleDeath();
+            }
+
+            livesText.text = lives.ToString();
+        }
 
     }
 }
