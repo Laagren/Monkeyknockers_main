@@ -26,6 +26,7 @@ public class C_MonkeyScript : MonoBehaviour
         {
             Destroy(GetComponent<AudioSource>());
         }
+        
     }
 
     public void OnTriggerEnter(Collider other)
