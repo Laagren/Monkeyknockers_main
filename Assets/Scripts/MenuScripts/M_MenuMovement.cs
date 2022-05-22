@@ -1,11 +1,10 @@
 using System.Collections;
-
-
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Security.Cryptography;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class M_MenuMovement : MonoBehaviour
 {
@@ -27,8 +26,8 @@ public class M_MenuMovement : MonoBehaviour
 
     void Start()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
 
@@ -62,6 +61,14 @@ public class M_MenuMovement : MonoBehaviour
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "StartRunnerTrigger")
+        {
+            SceneManager.LoadScene("RunnerGame");
         }
     }
 }
