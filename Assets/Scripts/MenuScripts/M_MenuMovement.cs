@@ -15,7 +15,7 @@ public class M_MenuMovement : MonoBehaviour
 
     [SerializeField] private CharacterController controller;
     [SerializeField] private Transform cam;
-
+    public Cursor cursor;
     [Header("Player settings")]
     [SerializeField] private float speed = 6;
     [SerializeField] private float gravity = -9.81f;
@@ -28,6 +28,7 @@ public class M_MenuMovement : MonoBehaviour
     void Start()
     {
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
 
