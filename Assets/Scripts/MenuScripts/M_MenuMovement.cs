@@ -153,5 +153,12 @@ public class M_MenuMovement : MonoBehaviour
         {
             SceneManager.LoadScene("RunnerGame");
         }
+
+        if (other.gameObject.tag == "StartDriveTrigger")
+        {
+            SceneManager.LoadScene("cargame2022_04_07");
+        }
     }
+
+    
 }

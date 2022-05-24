@@ -18,6 +18,7 @@ TagManager:
   - invisWall
   - JumpCrashTrigger
   - StartRunnerTrigger
+  - StartDriveTrigger
   layers:
   - Default
   - TransparentFX
