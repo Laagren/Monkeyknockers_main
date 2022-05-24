@@ -14,7 +14,7 @@ public class R_PlayerMovement : MonoBehaviour
     public bool onFloor;
     public static int lives;
 
-    string playername = "adam";
+    public static string playerName;
 
     [Header("Level settings")]
     [SerializeField] private LayerMask floor;
@@ -214,8 +214,8 @@ public class R_PlayerMovement : MonoBehaviour
         FindObjectOfType<C_AudioManager>().Stop("BackgroundMusic");
         gameOverScript.Setup(C_PointsDisplay.pointsDisplayInstance.currentPoints);
         //save name and score to file
-        M_ReadFromFile.SaveHighscoreToFile(C_PointsDisplay.pointsDisplayInstance.currentPoints, playername);
-        M_ReadFromFile.SaveNametoFile(playername);
+        M_ReadFromFile.SaveHighscoreToFile(C_PointsDisplay.pointsDisplayInstance.currentPoints, playerName);
+        M_ReadFromFile.SaveNametoFile(playerName);
 
         //highscore.Setup();
     }

@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class M_StartScreenScript : MonoBehaviour
 {
     private bool status = true;
+    [SerializeField] public TMP_InputField playerNameTxt;
 
     private void Start()
     {
@@ -29,6 +30,17 @@ public class M_StartScreenScript : MonoBehaviour
 
     public void ExitButton()
     {
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void StartGame()
+    {
+        R_PlayerMovement.playerName = playerNameTxt.text;
+        C_CarController.playerName = playerNameTxt.text;
+        M_MenuMovement.playerName = playerNameTxt.text;
+        //Debug.Log(C_CarController.playerName);
+        //Debug.Log(R_PlayerMovement.playerName);
+        //Debug.Log(M_MenuMovement.playerName);
         SceneManager.LoadScene("Menu");
     }
 }

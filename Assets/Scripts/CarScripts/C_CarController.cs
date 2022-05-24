@@ -12,7 +12,7 @@ public class C_CarController : MonoBehaviour
     public bool gameActive;
     private int resetLives = 3;
     private int counter;
-    string playername = "Wilmer";
+    public static string playerName;
     enum soundState { Idle, Driving, Horn}
     soundState state=soundState.Idle;
     
@@ -80,8 +80,8 @@ public class C_CarController : MonoBehaviour
             gameOverScript.Setup(C_PointsDisplay.pointsDisplayInstance.currentPoints);
             C_LevelManager.gameOver = true;
             gameActive = false;
-            M_ReadFromFile.SaveHighscoreToFile(C_PointsDisplay.pointsDisplayInstance.currentPoints, playername);
-            M_ReadFromFile.SaveNametoFile(playername);
+            M_ReadFromFile.SaveHighscoreToFile(C_PointsDisplay.pointsDisplayInstance.currentPoints, playerName);
+            M_ReadFromFile.SaveNametoFile(playerName);
         }    
     }
 
