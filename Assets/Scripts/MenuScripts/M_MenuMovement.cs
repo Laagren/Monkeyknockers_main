@@ -30,8 +30,8 @@ public class M_MenuMovement : MonoBehaviour
 
     void Start()
     {
-        //Cursor.visible = false;
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         currentAnimationValue = 0f;
         standStill = 0;
         stillJump = 0.25f;
@@ -152,6 +152,18 @@ public class M_MenuMovement : MonoBehaviour
         if (other.gameObject.tag == "StartRunnerTrigger")
         {
             SceneManager.LoadScene("RunnerGame");
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+
+        if (other.gameObject.tag == "StartDriveTrigger")
+        {
+            SceneManager.LoadScene("cargame2022_04_07");
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+
         }
     }
+
+    
 }
