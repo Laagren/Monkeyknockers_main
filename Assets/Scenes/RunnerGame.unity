@@ -1079,8 +1079,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameOverScript, Assembly-CSharp
+      - m_Target: {fileID: 652581224}
+        m_TargetAssemblyTypeName: R_GameOverScript, Assembly-CSharp
         m_MethodName: ExitButton
         m_Mode: 1
         m_Arguments:
@@ -1817,8 +1817,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameOverScript, Assembly-CSharp
+      - m_Target: {fileID: 652581224}
+        m_TargetAssemblyTypeName: R_GameOverScript, Assembly-CSharp
         m_MethodName: ExitButton
         m_Mode: 1
         m_Arguments:
@@ -2852,7 +2852,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.6848874, y: 1}
+    m_SensorSize: {x: 2.4523227, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2967,6 +2967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6acbea1965b720749b8014c67c71adc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onFloor: 0
   floor:
     serializedVersion: 2
     m_Bits: 8
@@ -2975,7 +2976,7 @@ MonoBehaviour:
   highscore: {fileID: 2017287094}
   gravity: -21
   sideSpeed: 6
-  runningSpeed: 19.63
+  runningSpeed: 15
 --- !u!95 &1191144409
 Animator:
   serializedVersion: 4

@@ -9,9 +9,9 @@ public class R_PlayerMovement : MonoBehaviour
     private CharacterController characterController;
     private System.Random random = new System.Random();
     private Vector3 direction, jumpForce;
-    private float idleTimer, controllerSaveHeight, controllerSlideHeight, controllerSaveCenterY, controllerSlideCenterY, distanceToFloor, runTimer;
-    private bool startRunning, onFloor, canTurn, sliding, stopSideRun, spawnTile, gameActive;
-
+    private float idleTimer, controllerSaveHeight, controllerSlideHeight, controllerSaveCenterY, controllerSlideCenterY, distanceToFloor, runTimer, savePlayerYpos;
+    private bool startRunning, canTurn, sliding, stopSideRun, spawnTile, gameActive;
+    public bool onFloor;
     public static int lives;
 
     string playername = "adam";
@@ -49,6 +49,7 @@ public class R_PlayerMovement : MonoBehaviour
         controllerSlideCenterY = 0.4f;
         distanceToFloor = 0.2f;
         lives = 3;
+        savePlayerYpos = transform.position.y;
 
         M_HighScore.highscoreFile = "RunnerHighscore.txt";
         M_HighScore.highscoreNamesFile = "RunnerHighscoreNames.txt";
@@ -103,8 +104,18 @@ public class R_PlayerMovement : MonoBehaviour
     }
     private void HandleInput()
     {
-        onFloor = Physics.CheckSphere(transform.position, distanceToFloor, floor);
+        //onFloor = Physics.CheckSphere(transform.position, distanceToFloor, floor);
         animator.SetBool("running", true);
+
+        if (transform.position.y <= savePlayerYpos + 0.1f)
+        {
+            Debug.Log("onfloor");
+            onFloor = true;
+        }
+        else
+        {
+            onFloor = false;
+        }
 
         if (Input.GetKeyDown(KeyCode.Space) && onFloor && animator.GetBool("jumping") != true)
         {
@@ -215,13 +226,7 @@ public class R_PlayerMovement : MonoBehaviour
         {
             canTurn = true;
         }
-        if (other.gameObject.tag == "JumpCrashTrigger")
-        {
-            runningSpeed = 12f;
-            animator.SetBool("JumpCrash", true);
 
-            //lives = 0;
-        }
         if (other.gameObject.tag == "SpawnNewTile")
         {
             spawnTile = true;
@@ -229,6 +234,63 @@ public class R_PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "wall")
         {
             stopSideRun = true;
+        }
+        if (other.gameObject.tag == "WallTurnRight"/* && canTurn*/ && onFloor)
+        {
+            canTurn = false;
+            lives--;
+
+            if (lives >= 1 && onFloor)
+            {
+                transform.Rotate(0, 90, 0);
+            }
+            else if (lives <= 0 && onFloor)
+            {
+                HandleDeath();
+            }
+
+            livesText.text = lives.ToString();
+        }
+        //else if (other.gameObject.tag == "WallTurnRight" && onFloor == false)
+        //{
+        //    other.gameObject.SetActive(false);
+        //    runningSpeed = 12f;
+        //    animator.SetBool("JumpCrash", true);
+        //}
+
+        if (other.gameObject.tag == "WallTurnLeft"/* && canTurn*/ && onFloor)
+        {
+            canTurn = false;
+            lives--;
+
+            if (lives >= 1 && onFloor)
+            {
+                transform.Rotate(0, -90, 0);
+            }
+            else if (lives <= 0 && onFloor)
+            {
+                HandleDeath();
+            }
+
+            livesText.text = lives.ToString();
+        }
+        //else if (other.gameObject.tag == "WallTurnLeft" && onFloor == false)
+        //{
+        //    other.gameObject.SetActive(false);
+        //    runningSpeed = 12f;
+        //    animator.SetBool("JumpCrash", true);
+        //}
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit other)
+    {
+        if (other.gameObject.tag == "JumpCrashTrigger" && onFloor == false)
+        {
+            other.gameObject.SetActive(false);
+            runningSpeed = 12f;
+            animator.SetBool("JumpCrash", true);
+
+            //lives = 0;
         }
     }
 
@@ -284,45 +346,67 @@ public class R_PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnControllerColliderHit(ControllerColliderHit other)
-    {
-        if (other.gameObject.tag == "CrashObject")
-        {
-            lives = 0;         
-            HandleDeath();
-        }
+    //private void ( hit)
+    //{
+        
+    ////}
+    //private void OnControllerColliderHit(ControllerColliderHit other)
+    //{
+    //    //if (other.gameObject.tag == "CrashObject")
+    //    //{
+    //    //    lives = 0;         
+    //    //    HandleDeath();
+    //    //}
+    //    //if (other.gameObject.tag == "JumpCrashTrigger")
+    //    //{
+    //    //    runningSpeed = 12f;
+    //    //    animator.SetBool("JumpCrash", true);
 
-        if (other.gameObject.tag == "WallTurnRight"/* && canTurn*/)
-        {
-            lives--;
+    //    //    //lives = 0;
+    //    //}
 
-            if (lives >= 1 && onFloor)
-            {
-                transform.Rotate(0, 90, 0);
-            }
-            else
-            {
-                HandleDeath();
-            }
+    //    if (other.gameObject.tag == "WallTurnRight"/* && canTurn*/ && transform.position.y <= savePlayerYpos)
+    //    {
+    //        lives--;
 
-            livesText.text = lives.ToString();
-        }
+    //        if (lives >= 1 && onFloor)
+    //        {
+    //            transform.Rotate(0, 90, 0);
+    //        }
+    //        else if(lives <= 0 && onFloor)
+    //        {
+    //            HandleDeath();
+    //        }
 
-        if (other.gameObject.tag == "WallTurnLeft"/* && canTurn*/)
-        {
-            lives--;
+    //        livesText.text = lives.ToString();
+    //    }
+    //    else if(other.gameObject.tag == "WallTurnRight" && transform.position.y >= savePlayerYpos && onFloor != true)
+    //    {
+    //        other.gameObject.SetActive(false);
+    //        runningSpeed = 12f;
+    //        animator.SetBool("JumpCrash", true);
+    //    }
 
-            if (lives >= 1 && onFloor)
-            {
-                transform.Rotate(0, -90, 0);
-            }
-            else
-            {
-                HandleDeath();
-            }
+    //    if (other.gameObject.tag == "WallTurnLeft"/* && canTurn*/ && transform.position.y <= savePlayerYpos)
+    //    {
+    //        lives--;
 
-            livesText.text = lives.ToString();
-        }
+    //        if (lives >= 1 && onFloor)
+    //        {
+    //            transform.Rotate(0, -90, 0);
+    //        }
+    //        else if (lives <= 0 && onFloor)
+    //        {
+    //            HandleDeath();
+    //        }
 
-    }
+    //        livesText.text = lives.ToString();
+    //    }
+    //    else if (other.gameObject.tag == "WallTurnLeft" && transform.position.y >= savePlayerYpos && onFloor != true)
+    //    {
+    //        other.gameObject.SetActive(false);
+    //        runningSpeed = 12f;
+    //        animator.SetBool("JumpCrash", true);
+    //    }
+    //}
 }

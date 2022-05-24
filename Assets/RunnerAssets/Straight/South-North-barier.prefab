@@ -608,7 +608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d339a21f484ee2b4aa509754823d5918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileSize: {x: 20, y: 30}
+  tileSize: {x: 30, y: 30}
   entry: 2
   exit: 0
   tileName: South-North
