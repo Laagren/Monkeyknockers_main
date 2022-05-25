@@ -8,8 +8,8 @@ public class C_GasBarScript : MonoBehaviour
     private Image gasBar; 
     private C_CarController carController;
     private C_GasBarScript gasBarScript;
-    private float gasAccelerate = 0.02f;
-    private float gasIdle = 0.01f;
+    private float gasAccelerate = 0.2f;
+    private float gasIdle = 0.1f;
     private float maxGas = 100f;
     public float currentGas = 100f;
     public float fill;

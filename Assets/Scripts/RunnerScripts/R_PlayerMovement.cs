@@ -298,11 +298,21 @@ public class R_PlayerMovement : MonoBehaviour
             lives = 0;
             HandleDeath();
         }
-        if (other.gameObject.tag == "SlideHurdle" && onFloor == false)
+        if (other.gameObject.tag == "SlideHurdle")
         {
-            other.gameObject.SetActive(false);
-            runningSpeed = 12f;
-            animator.SetBool("JumpCrash", true);
+            if (onFloor)
+            {
+                lives = 0;
+                HandleDeath();
+            }
+            else
+            {
+                other.collider.isTrigger = true;
+                runningSpeed = 12f;
+                animator.SetBool("JumpCrash", true);
+            }
+            //other.gameObject.SetActive(false);
+
         }
     }
 
