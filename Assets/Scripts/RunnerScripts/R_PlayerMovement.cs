@@ -48,7 +48,7 @@ public class R_PlayerMovement : MonoBehaviour
         controllerSaveCenterY = 0.85f;
         controllerSlideCenterY = 0.4f;
         distanceToFloor = 0.2f;
-        lives = 3;
+        lives = 20;
         savePlayerYpos = transform.position.y;
 
         M_HighScore.highscoreFile = "RunnerHighscore.txt";
@@ -292,6 +292,18 @@ public class R_PlayerMovement : MonoBehaviour
 
             //lives = 0;
         }
+
+        if (other.gameObject.tag == "CrashObject")
+        {
+            lives = 0;
+            HandleDeath();
+        }
+        if (other.gameObject.tag == "SlideHurdle" && onFloor == false)
+        {
+            other.gameObject.SetActive(false);
+            runningSpeed = 12f;
+            animator.SetBool("JumpCrash", true);
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -348,15 +360,11 @@ public class R_PlayerMovement : MonoBehaviour
 
     //private void ( hit)
     //{
-        
+
     ////}
     //private void OnControllerColliderHit(ControllerColliderHit other)
     //{
-    //    //if (other.gameObject.tag == "CrashObject")
-    //    //{
-    //    //    lives = 0;         
-    //    //    HandleDeath();
-    //    //}
+
     //    //if (other.gameObject.tag == "JumpCrashTrigger")
     //    //{
     //    //    runningSpeed = 12f;

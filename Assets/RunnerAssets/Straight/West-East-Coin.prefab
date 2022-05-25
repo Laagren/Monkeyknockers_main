@@ -36800,7 +36800,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 400ca6311d5459244a1af9dea192449c, type: 3}
       propertyPath: m_TagString
-      value: CrashObject
+      value: SlideHurdle
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 400ca6311d5459244a1af9dea192449c, type: 3}
       propertyPath: m_RootOrder

@@ -19,6 +19,7 @@ TagManager:
   - JumpCrashTrigger
   - StartRunnerTrigger
   - StartDriveTrigger
+  - SlideHurdle
   layers:
   - Default
   - TransparentFX
