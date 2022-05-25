@@ -1159,7 +1159,7 @@ GameObject:
   - component: {fileID: 5150692691410967537}
   m_Layer: 0
   m_Name: TurnPlattform
-  m_TagString: turnPlatform
+  m_TagString: TurnRightPlatt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

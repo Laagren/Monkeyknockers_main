@@ -75,7 +75,7 @@ public class C_CarController : MonoBehaviour
     //När gasen tar slut, så visas gameOver skärmen och visar score och sparar scoren med spelarens namn till highscorelistan.
     public void GameOver()
     {
-        if(C_GasBarScript.gasInstance.currentGas <= 2)
+        if(C_GasBarScript.gasInstance.currentGas <= 3)
         {
             gameOverScript.Setup(C_PointsDisplay.pointsDisplayInstance.currentPoints);
             C_LevelManager.gameOver = true;

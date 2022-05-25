@@ -10,7 +10,7 @@ public class R_PlayerMovement : MonoBehaviour
     private System.Random random = new System.Random();
     private Vector3 direction, jumpForce;
     private float idleTimer, controllerSaveHeight, controllerSlideHeight, controllerSaveCenterY, controllerSlideCenterY, distanceToFloor, runTimer, savePlayerYpos;
-    private bool startRunning, canTurn, sliding, stopSideRun, spawnTile, gameActive;
+    private bool startRunning, canTurn, sliding, stopSideRun, spawnTile, gameActive, canTurnLeft, canTurnRight;
     public bool onFloor;
     public static int lives;
 
@@ -48,7 +48,7 @@ public class R_PlayerMovement : MonoBehaviour
         controllerSaveCenterY = 0.85f;
         controllerSlideCenterY = 0.4f;
         distanceToFloor = 0.2f;
-        lives = 20;
+        lives = 3;
         savePlayerYpos = transform.position.y;
 
         M_HighScore.highscoreFile = "RunnerHighscore.txt";
@@ -132,19 +132,19 @@ public class R_PlayerMovement : MonoBehaviour
             HandleSound();
         }
 
-        if (canTurn)
-        {
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+        //if (canTurn)
+        //{
+            if (Input.GetKeyDown(KeyCode.RightArrow) && canTurnRight)
             {
-                canTurn = false;
+                canTurnRight = false;
                 transform.Rotate(0, 90, 0);
             }
-            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            else if (Input.GetKeyDown(KeyCode.LeftArrow) && canTurnLeft)
             {
-                canTurn = false;
+                canTurnLeft = false;
                 transform.Rotate(0, -90, 0);
             }
-        }
+        //}
     }
 
     private void HandleSound()
@@ -222,9 +222,14 @@ public class R_PlayerMovement : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Kollar om spelaren klivit på en trigger som gör att den kan vända 90 grader.
-        if (other.isTrigger && other.gameObject.tag == "turnPlatform")
+        if (other.isTrigger && other.gameObject.tag == "TurnRightPlatt")
         {
-            canTurn = true;
+            //canTurn = true;
+            canTurnRight = true;
+        }
+        if (other.isTrigger && other.gameObject.tag == "TurnLeftPlatt")
+        {
+            canTurnLeft = true;
         }
 
         if (other.gameObject.tag == "SpawnNewTile")
@@ -237,7 +242,9 @@ public class R_PlayerMovement : MonoBehaviour
         }
         if (other.gameObject.tag == "WallTurnRight"/* && canTurn*/ && onFloor)
         {
-            canTurn = false;
+            //canTurn = false;
+            canTurnLeft = false;
+            canTurnRight = false;
             lives--;
 
             if (lives >= 1 && onFloor)
@@ -260,7 +267,9 @@ public class R_PlayerMovement : MonoBehaviour
 
         if (other.gameObject.tag == "WallTurnLeft"/* && canTurn*/ && onFloor)
         {
-            canTurn = false;
+            //canTurn = false;
+            canTurnLeft = false;
+            canTurnRight = false;
             lives--;
 
             if (lives >= 1 && onFloor)
@@ -318,9 +327,14 @@ public class R_PlayerMovement : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.isTrigger && other.gameObject.tag == "turnPlatform")
+        if (other.isTrigger && other.gameObject.tag == "TurnLeftPlatt")
         {
-            canTurn = false;
+            //canTurn = false;
+            canTurnLeft = false;
+        }
+        if (other.isTrigger && other.gameObject.tag == "TurnRightPlatt")
+        {
+            canTurnRight = false;
         }
         if (other.gameObject.tag == "wall")
         {

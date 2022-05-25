@@ -1015,13 +1015,13 @@ MonoBehaviour:
   sounds:
   - name: MonkeyDeath
     clip: {fileID: 8300000, guid: e11e7a9f8565c064d8d9337e801497ed, type: 3}
-    volume: 0.651
+    volume: 0.511
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: BackgroundMusic
     clip: {fileID: 8300000, guid: 1919d88101d3baf4aa037b8496dfc8e2, type: 3}
-    volume: 0.2
+    volume: 0.421
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -3722,6 +3722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85182c1a5ff917469775d9eb46cf241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNameTxt: {fileID: 0}
 --- !u!114 &1212776028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4154,6 +4155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentGas: 100
+  fill: 0
 --- !u!114 &1499910199
 MonoBehaviour:
   m_ObjectHideFlags: 0
