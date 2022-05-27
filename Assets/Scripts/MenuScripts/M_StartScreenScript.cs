@@ -35,7 +35,7 @@ public class M_StartScreenScript : MonoBehaviour
 
     public void StartGame()
     {
-        R_PlayerMovement.playerName = playerNameTxt.text;
+        R_PlayerScript.playerName = playerNameTxt.text;
         C_CarController.playerName = playerNameTxt.text;
         M_MenuMovement.playerName = playerNameTxt.text;
         //Debug.Log(C_CarController.playerName);

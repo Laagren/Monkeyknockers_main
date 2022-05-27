@@ -59,7 +59,7 @@ public class R_MonkeyScript : MonoBehaviour
             transform.Translate(Vector3.up * speedY * Time.deltaTime, savePos); 
             removeTimer += Time.deltaTime;          
         }
-        if (R_PlayerMovement.lives == 0)
+        if (R_PlayerScript.lives == 0)
         {
             monkeySound.Stop();
         }

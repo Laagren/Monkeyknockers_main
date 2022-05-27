@@ -15,7 +15,7 @@ public class R_LevelManager : MonoBehaviour
     [SerializeField] private List<R_TileData> activeTiles = new List<R_TileData>();
     [SerializeField] private R_TileData startTile;
     [SerializeField] private Vector3 origin;
-    [SerializeField] private R_PlayerMovement player_script;
+    [SerializeField] private R_PlayerScript player_script;
 
     // Generates 10 tiles at start.
     void Start()
