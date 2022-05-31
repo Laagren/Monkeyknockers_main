@@ -35,8 +35,8 @@ public class M_MenuMovement : MonoBehaviour
 
     void Start()
     {
-        //Cursor.visible = false;
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         currentAnimationValue = 0f;
         standStill = 0;
         stillJump = 0.25f;

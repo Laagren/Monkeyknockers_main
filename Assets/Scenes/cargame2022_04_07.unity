@@ -852,8 +852,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameOverScript, Assembly-CSharp
+      - m_Target: {fileID: 92509509}
+        m_TargetAssemblyTypeName: C_GameOverScript, Assembly-CSharp
         m_MethodName: ExitButton
         m_Mode: 1
         m_Arguments:
@@ -1015,13 +1015,13 @@ MonoBehaviour:
   sounds:
   - name: MonkeyDeath
     clip: {fileID: 8300000, guid: e11e7a9f8565c064d8d9337e801497ed, type: 3}
-    volume: 0.511
+    volume: 0.1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: BackgroundMusic
     clip: {fileID: 8300000, guid: 1919d88101d3baf4aa037b8496dfc8e2, type: 3}
-    volume: 0.421
+    volume: 0.2
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -1045,7 +1045,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: GameOverSound
     clip: {fileID: 8300000, guid: b95f425f538326b43b6c85e0960d8488, type: 3}
-    volume: 0.3
+    volume: 0.5
     pitch: 1
     loop: 1
     source: {fileID: 0}
