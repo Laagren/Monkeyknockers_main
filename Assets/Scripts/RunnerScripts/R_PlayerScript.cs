@@ -9,11 +9,11 @@ public class R_PlayerScript : MonoBehaviour
     private CharacterController characterController;
     private System.Random random = new System.Random();
     private Vector3 direction, jumpForce;
-    private float idleTimer, controllerSaveHeight, controllerSlideHeight, controllerSaveCenterY, controllerSlideCenterY, distanceToFloor, runTimer, savePlayerYpos;
+    private float idleTimer, controllerSaveHeight, controllerSlideHeight, controllerSaveCenterY, controllerSlideCenterY, runTimer, savePlayerYpos;
     private bool startRunning, canTurn, sliding, stopSideRun, spawnTile, gameActive, canTurnLeft, canTurnRight;
     public bool onFloor;
-    public static int lives;
 
+    public static int lives;
     public static string playerName;
 
     [Header("Level settings")]
@@ -47,7 +47,6 @@ public class R_PlayerScript : MonoBehaviour
         controllerSlideHeight = 0.7f;
         controllerSaveCenterY = 0.85f;
         controllerSlideCenterY = 0.4f;
-        distanceToFloor = 0.2f;
         lives = 3;
         savePlayerYpos = transform.position.y;
 
@@ -65,7 +64,6 @@ public class R_PlayerScript : MonoBehaviour
             if (startRunning)
             {
                 HandleInput();
-                //HandleSound();
                 HandleMovement();
             } 
         }
@@ -104,7 +102,6 @@ public class R_PlayerScript : MonoBehaviour
     }
     private void HandleInput()
     {
-        //onFloor = Physics.CheckSphere(transform.position, distanceToFloor, floor);
         animator.SetBool("running", true);
 
         if (transform.position.y <= savePlayerYpos + 0.1f)
@@ -132,8 +129,6 @@ public class R_PlayerScript : MonoBehaviour
             HandleSound();
         }
 
-        //if (canTurn)
-        //{
             if (Input.GetKeyDown(KeyCode.RightArrow) && canTurnRight)
             {
                 canTurnRight = false;
@@ -144,7 +139,6 @@ public class R_PlayerScript : MonoBehaviour
                 canTurnLeft = false;
                 transform.Rotate(0, -90, 0);
             }
-        //}
     }
 
     private void HandleSound()
@@ -213,18 +207,14 @@ public class R_PlayerScript : MonoBehaviour
         HandleSound();
         FindObjectOfType<C_AudioManager>().Stop("BackgroundMusic");
         gameOverScript.Setup(C_PointsDisplay.pointsDisplayInstance.currentPoints);
-        //save name and score to file
         M_ReadFromFile.SaveHighscoreToFile(C_PointsDisplay.pointsDisplayInstance.currentPoints, playerName);
         M_ReadFromFile.SaveNametoFile(playerName);
-
-        //highscore.Setup();
     }
     private void OnTriggerEnter(Collider other)
     {
         // Kollar om spelaren klivit på en trigger som gör att den kan vända 90 grader.
         if (other.isTrigger && other.gameObject.tag == "TurnRightPlatt")
         {
-            //canTurn = true;
             canTurnRight = true;
         }
         if (other.isTrigger && other.gameObject.tag == "TurnLeftPlatt")
@@ -240,9 +230,8 @@ public class R_PlayerScript : MonoBehaviour
         {
             stopSideRun = true;
         }
-        if (other.gameObject.tag == "WallTurnRight"/* && canTurn*/ && onFloor)
+        if (other.gameObject.tag == "WallTurnRight" && onFloor)
         {
-            //canTurn = false;
             canTurnLeft = false;
             canTurnRight = false;
             lives--;
@@ -258,16 +247,9 @@ public class R_PlayerScript : MonoBehaviour
 
             livesText.text = lives.ToString();
         }
-        //else if (other.gameObject.tag == "WallTurnRight" && onFloor == false)
-        //{
-        //    other.gameObject.SetActive(false);
-        //    runningSpeed = 12f;
-        //    animator.SetBool("JumpCrash", true);
-        //}
 
-        if (other.gameObject.tag == "WallTurnLeft"/* && canTurn*/ && onFloor)
+        if (other.gameObject.tag == "WallTurnLeft" && onFloor)
         {
-            //canTurn = false;
             canTurnLeft = false;
             canTurnRight = false;
             lives--;
@@ -283,12 +265,6 @@ public class R_PlayerScript : MonoBehaviour
 
             livesText.text = lives.ToString();
         }
-        //else if (other.gameObject.tag == "WallTurnLeft" && onFloor == false)
-        //{
-        //    other.gameObject.SetActive(false);
-        //    runningSpeed = 12f;
-        //    animator.SetBool("JumpCrash", true);
-        //}
     }
 
     private void OnControllerColliderHit(ControllerColliderHit other)
@@ -298,8 +274,6 @@ public class R_PlayerScript : MonoBehaviour
             other.gameObject.SetActive(false);
             runningSpeed = 12f;
             animator.SetBool("JumpCrash", true);
-
-            //lives = 0;
         }
 
         if (other.gameObject.tag == "CrashObject")
@@ -320,8 +294,6 @@ public class R_PlayerScript : MonoBehaviour
                 runningSpeed = 12f;
                 animator.SetBool("JumpCrash", true);
             }
-            //other.gameObject.SetActive(false);
-
         }
     }
 
@@ -329,7 +301,6 @@ public class R_PlayerScript : MonoBehaviour
     {
         if (other.isTrigger && other.gameObject.tag == "TurnLeftPlatt")
         {
-            //canTurn = false;
             canTurnLeft = false;
         }
         if (other.isTrigger && other.gameObject.tag == "TurnRightPlatt")
@@ -375,70 +346,9 @@ public class R_PlayerScript : MonoBehaviour
     {
         if (message.Equals("JumpCrashEnd"))
         {
-            //animator.GetComponent<Animator>.enabled = false;
             gameObject.GetComponent<Animator>().enabled = false; 
             lives = 0;
             HandleDeath();
         }
     }
-
-    //private void ( hit)
-    //{
-
-    ////}
-    //private void OnControllerColliderHit(ControllerColliderHit other)
-    //{
-
-    //    //if (other.gameObject.tag == "JumpCrashTrigger")
-    //    //{
-    //    //    runningSpeed = 12f;
-    //    //    animator.SetBool("JumpCrash", true);
-
-    //    //    //lives = 0;
-    //    //}
-
-    //    if (other.gameObject.tag == "WallTurnRight"/* && canTurn*/ && transform.position.y <= savePlayerYpos)
-    //    {
-    //        lives--;
-
-    //        if (lives >= 1 && onFloor)
-    //        {
-    //            transform.Rotate(0, 90, 0);
-    //        }
-    //        else if(lives <= 0 && onFloor)
-    //        {
-    //            HandleDeath();
-    //        }
-
-    //        livesText.text = lives.ToString();
-    //    }
-    //    else if(other.gameObject.tag == "WallTurnRight" && transform.position.y >= savePlayerYpos && onFloor != true)
-    //    {
-    //        other.gameObject.SetActive(false);
-    //        runningSpeed = 12f;
-    //        animator.SetBool("JumpCrash", true);
-    //    }
-
-    //    if (other.gameObject.tag == "WallTurnLeft"/* && canTurn*/ && transform.position.y <= savePlayerYpos)
-    //    {
-    //        lives--;
-
-    //        if (lives >= 1 && onFloor)
-    //        {
-    //            transform.Rotate(0, -90, 0);
-    //        }
-    //        else if (lives <= 0 && onFloor)
-    //        {
-    //            HandleDeath();
-    //        }
-
-    //        livesText.text = lives.ToString();
-    //    }
-    //    else if (other.gameObject.tag == "WallTurnLeft" && transform.position.y >= savePlayerYpos && onFloor != true)
-    //    {
-    //        other.gameObject.SetActive(false);
-    //        runningSpeed = 12f;
-    //        animator.SetBool("JumpCrash", true);
-    //    }
-    //}
 }

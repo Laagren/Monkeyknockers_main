@@ -66,7 +66,7 @@ public class C_CarController : MonoBehaviour
         }
     }
 
-    //Denna toggla mellan om spelet ska vara aktivit eller inte.
+    ///
     public void ChangeGameStatus()
     {
         gameActive = !gameActive;

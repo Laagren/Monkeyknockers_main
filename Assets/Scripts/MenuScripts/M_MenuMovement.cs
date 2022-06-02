@@ -10,19 +10,17 @@ using UnityEngine.SceneManagement;
 public class M_MenuMovement : MonoBehaviour
 {
     private Vector3 velocity;
-    public bool isGrounded;
+    private bool isGrounded;
     private float turnSmoothVelocity;
-    private float standStill, walking, running, stillJump, runningJump, currentAnimationValue, distToGround;
-    public float animationConst;
+    private float standStill, walking, running, currentAnimationValue, distToGround;
+    private float animationConst;
 
-    //public static bool gameActive;
     public static string playerName;
 
     [SerializeField] private CharacterController controller;
     [SerializeField] private Transform cam;
     [SerializeField] private Animator animator;
 
-    public Cursor cursor;
     [Header("Player settings")]
     
     [SerializeField] private float speed;
@@ -39,50 +37,28 @@ public class M_MenuMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         currentAnimationValue = 0f;
         standStill = 0;
-        stillJump = 0.25f;
+
         walking = 0.33333f;
         running = 0.66666f;
-        runningJump = 1.0f;
+
         distToGround = 0.35f;
         Debug.Log(playerName);
     }
 
     private bool IsGrounded()
     {
-        //return Physics.Raycast(transform.position, Vector3.down, distToGround);
+
         return Physics.Raycast(transform.position, Vector3.down, distToGround, 1 << LayerMask.NameToLayer("Ground"));
     }
 
     // Update is called once per frame
     void Update()
     {
-
-            //isGrounded = Physics.CheckSphere(transform.position, groundDistance, ground);
             isGrounded = IsGrounded();
             if (isGrounded && velocity.y < 0)
             {
                 velocity.y = -2f;
             }
-
-            //if (Input.GetKey(KeyCode.Space) && isGrounded)
-            //{
-
-            //    //velocity.y = Mathf.Lerp(transform.position.y, jumpHeight, Time.deltaTime * 20);
-            //    //controller.center = new Vector3(controller.center.x, 1.4f, controller.center.z);
-            //    //controller.height = 1.1f;
-            //    if (speed >= 12.0f)
-            //    {
-            //        currentAnimationValue = Mathf.Lerp(currentAnimationValue, runningJump, Time.deltaTime * animationConst);
-
-            //        animator.SetFloat("Blend", currentAnimationValue);
-            //    }
-            //    else if (currentAnimationValue <= 0.01)
-            //    {
-            //        animator.SetBool("Still", true);
-            //        //currentAnimationValue = Mathf.Lerp(currentAnimationValue, stillJump, Time.deltaTime * animationConst);
-            //    }
-
-            //}
 
             if (Input.GetKey(KeyCode.LeftShift))
             {
@@ -90,7 +66,6 @@ public class M_MenuMovement : MonoBehaviour
                 currentAnimationValue = Mathf.Lerp(currentAnimationValue, running, Time.deltaTime * animationConst);
                 animator.SetFloat("Blend", currentAnimationValue);
             }
-
 
             velocity.y += gravity * Time.deltaTime;
             controller.Move(velocity * Time.deltaTime);
@@ -127,14 +102,9 @@ public class M_MenuMovement : MonoBehaviour
 
                 }
                 currentAnimationValue = Mathf.Lerp(currentAnimationValue, standStill, Time.deltaTime * animationConst);
-                //else
-                //{
-                //    currentAnimationValue = 0f;
-                //}
 
                 animator.SetFloat("Blend", currentAnimationValue);
-            } 
-        
+            }       
     }
 
     public void JumpFinished(string message)
@@ -149,7 +119,6 @@ public class M_MenuMovement : MonoBehaviour
     {
         if (message.Equals("StartJump"))
         {
-            //velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
 
         }
@@ -172,7 +141,5 @@ public class M_MenuMovement : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
 
         }
-    }
-
-    
+    }   
 }

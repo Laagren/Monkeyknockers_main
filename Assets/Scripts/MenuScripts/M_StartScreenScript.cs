@@ -38,9 +38,6 @@ public class M_StartScreenScript : MonoBehaviour
         R_PlayerScript.playerName = playerNameTxt.text;
         C_CarController.playerName = playerNameTxt.text;
         M_MenuMovement.playerName = playerNameTxt.text;
-        //Debug.Log(C_CarController.playerName);
-        //Debug.Log(R_PlayerMovement.playerName);
-        //Debug.Log(M_MenuMovement.playerName);
         SceneManager.LoadScene("Menu");
     }
 }

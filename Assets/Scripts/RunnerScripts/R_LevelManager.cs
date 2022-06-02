@@ -82,7 +82,6 @@ public class R_LevelManager : MonoBehaviour
         return possibleTiles[rnd.Next(0, possibleTiles.Count)];
     }
 
-
     private void FindPossibleTiles(R_TileData.Direction newStartDir, List<R_TileData> possibleTiles)
     {
         foreach (R_TileData t in listOfTiles)
@@ -105,6 +104,7 @@ public class R_LevelManager : MonoBehaviour
             }
         }
     }
+
     private void GenerateTile()
     {
         chosenTile = ChooseTile();

@@ -6,9 +6,11 @@ public class C_AudioManager : MonoBehaviour
 {
     [SerializeField] public C_Sound[] sounds;
 
+    /// <summary>
+    /// Här ger vi scriptet C_Sound värde
+    /// </summary>
     void Awake()
-    {
-        //Här ger vi scriptet C_Sound värde
+    {       
         foreach (C_Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -24,7 +26,10 @@ public class C_AudioManager : MonoBehaviour
         Play("BackgroundMusic");
     }
 
-    //Så att man kan skriva vad man döpt ljudfilen till istället för att skriva ljudfilens orginalnamn och att man kan starta ljudet.
+    /// <summary>
+    /// Så att man kan skriva vad man döpt ljudfilen till istället för att skriva ljudfilens orginalnamn och att man kan starta ljudet.
+    /// </summary>
+    /// <param name="name"></param>
     public void Play (string name)
     {
         C_Sound s = Array.Find(sounds, s => s.name == name);

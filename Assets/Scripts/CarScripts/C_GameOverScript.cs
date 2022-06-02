@@ -16,7 +16,6 @@ public class C_GameOverScript : MonoBehaviour
         FindObjectOfType<C_AudioManager>().Play("GameOverSound");
     }
 
-    //Denna öppnar upp GameOver skärmen.
     public void Setup(int score)
     {
         ToggleStatus();
@@ -24,7 +23,6 @@ public class C_GameOverScript : MonoBehaviour
         StopJungleDriveSound();
     }
 
-    //Switchar mellan att vissa och gömma objektet.
     public void ToggleStatus()
     {
         status = !status;

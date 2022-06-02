@@ -10,7 +10,6 @@ public class C_RotateCamera : MonoBehaviour {
     private Vector2 MousePos;
     void Update()
     {
-        //
         if (Input.GetKey(KeyCode.W))
         {
             var target = Vector3.MoveTowards(transform.position, transform.TransformPoint(Vector3.forward), MoveSpeed * Time.deltaTime);

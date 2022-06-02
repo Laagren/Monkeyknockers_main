@@ -8,23 +8,12 @@ public class M_HighScore : MonoBehaviour
 {
     private List<int> highscoreList;
     private List<string> nameList;
-    [SerializeField] private bool status;
 
     public static string highscoreFile;
     public static string highscoreNamesFile;
 
     [SerializeField] private TextMeshProUGUI[] pointsText;
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private bool status;
 
     public void Setup()
     {
@@ -37,8 +26,6 @@ public class M_HighScore : MonoBehaviour
                 pointsText[i].text = nameList[i] + " - " + highscoreList[i].ToString();
             }
         }
-        //pointsText.text = nameList[0] + " - " + highscoreList[0].ToString();
-        //StopJungleRunnerSound();
     }
 
     public void ToggleStatus()
@@ -47,11 +34,13 @@ public class M_HighScore : MonoBehaviour
         gameObject.SetActive(status);
     }
 
+    /// <summary>
+    /// Läser in från highscore fil och sparar ner dessa i en lista (List<string>) som sedan kan skrivas ut.
+    /// </summary>
     public void ReadHighscore()
     {
         List<string> lines = new List<string>();
         StreamReader sr = new StreamReader(highscoreFile);
-        // @"C:\Users\Simon\Desktop\Code\MonkeyKnockers-main\Monkeyknockers_main\Assets\RunnerAssets\JungleHighscore.txt"
         while (!sr.EndOfStream)
         {
             lines.Add(sr.ReadLine());

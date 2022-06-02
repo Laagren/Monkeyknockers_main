@@ -72,7 +72,6 @@ public class R_MonkeyScript : MonoBehaviour
             C_PointsDisplay.pointsDisplayInstance.AddPoint();
             coinHit = true;
             FindObjectOfType<C_AudioManager>().Play("MonkeyDeath");
-            //sound.sounds[0].volume = 0;
         }
     }
 }

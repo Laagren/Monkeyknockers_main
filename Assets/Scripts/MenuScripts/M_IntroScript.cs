@@ -6,11 +6,6 @@ public class M_IntroScript : MonoBehaviour
 {
     private float timer;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         timer += Time.deltaTime;

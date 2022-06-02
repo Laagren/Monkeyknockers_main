@@ -29,7 +29,6 @@ public class C_GasBarScript : MonoBehaviour
         
     }
   
-    //Så länge spelet är igång ska bränslet minska, det minskar mer när man gasar.
     void Update()
     {
         if (carController.gameActive)

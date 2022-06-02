@@ -6,7 +6,6 @@ public class C_GasObstacleScript : MonoBehaviour
 {
     void Update()
     {
-        //Så att gastanken roteras.
         transform.Rotate(0, 90 * Time.deltaTime, 0);
     }
 
