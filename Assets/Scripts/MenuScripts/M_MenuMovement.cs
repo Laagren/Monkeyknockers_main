@@ -12,14 +12,14 @@ public class M_MenuMovement : MonoBehaviour
     private Vector3 velocity;
     private bool isGrounded;
     private float turnSmoothVelocity;
-    private float standStill, walking, running, currentAnimationValue, distToGround;
-    private float animationConst;
+    public float standStill, walking, running, currentAnimationValue, distToGround;
+    public float animationConst;
 
     public static string playerName;
 
-    [SerializeField] private CharacterController controller;
-    [SerializeField] private Transform cam;
-    [SerializeField] private Animator animator;
+    [SerializeField] public CharacterController controller;
+    [SerializeField] public Transform cam;
+    [SerializeField] public Animator animator;
 
     [Header("Player settings")]
     
